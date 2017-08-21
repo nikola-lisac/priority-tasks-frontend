@@ -5,7 +5,7 @@ export const saveTask = evt => {
     evt.preventDefault();
     let form = evt.target;
     let input = form.childNodes[0];
-    let url = 'http://localhost:8080/task';
+    let url = 'http://localhost:8080/tasks';
 
     var task = {
         name: input.value,
