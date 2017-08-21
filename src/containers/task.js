@@ -14,7 +14,13 @@ class Task extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        saveTask: evt => dispatch(saveTask(evt))
+        saveTask: evt => {
+            evt.preventDefault();
+            let form = evt.target;
+            let inputsValue = form.childNodes[0].value;
+            dispatch(saveTask(inputsValue));
+            form.reset();
+        }
     }
 };
 
