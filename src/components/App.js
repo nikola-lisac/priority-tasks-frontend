@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Task from './task'
+import Task from '../containers/task'
 
 class App extends Component {
   render() {
