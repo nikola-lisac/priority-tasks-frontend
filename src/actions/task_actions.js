@@ -3,9 +3,8 @@ import axios from 'axios';
 
 export const saveTask = newTask => {
 
-    var url = 'http://localhost:8080/tasks';
+    let url = 'http://localhost:8080/task';
     var task = {
-        id: 1, //id will be removed after we fix auto-increment functionality on server side
         name: newTask,
         createdAt: new Date(),
         completed: false
