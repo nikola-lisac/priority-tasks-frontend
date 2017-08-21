@@ -19,6 +19,8 @@ export const saveTask = evt => {
                 type: SAVE_TASK,
                 payload: response.data
             });
+
+            form.reset();
         }).catch(error => {
             console.log(error)
         });
