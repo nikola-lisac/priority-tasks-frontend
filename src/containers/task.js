@@ -3,10 +3,28 @@ import {connect} from 'react-redux';
 import {saveTask} from '../actions/task_actions.js';
 
 class Task extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            task: ''
+        }
+    }
+
+    onChangeHandler = (evt) => {
+        this.setState({task : evt.target.value})
+    };
+
+    onSubmitHandler = (evt) => {
+        evt.preventDefault();
+        this.props.saveTask(this.state.task);
+        this.setState({task : ''})
+    };
+
     render = () => {
         return (
-            <form onSubmit={(evt) => this.props.saveTask(evt)}>
-                <input type="text"/>
+            <form onSubmit={(evt) => this.onSubmitHandler(evt)}>
+                <input value={this.state.task} type="text" onChange={(evt) => this.onChangeHandler(evt)}/>
             </form>
         )
     };
@@ -14,13 +32,7 @@ class Task extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        saveTask: evt => {
-            evt.preventDefault();
-            let form = evt.target;
-            let inputsValue = form.childNodes[0].value;
-            dispatch(saveTask(inputsValue));
-            form.reset();
-        }
+        saveTask: inputValue => dispatch(saveTask(inputValue))
     }
 };
 
