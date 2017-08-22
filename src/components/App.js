@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TasksList from './tasksList'
-
+import Task from '../containers/task'
 
 class App extends Component {
   render() {
@@ -8,6 +8,7 @@ class App extends Component {
       <div>
         <h1>Priority Tasks</h1>
         <TasksList />
+        <Task />
       </div>
 
     );
