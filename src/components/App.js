@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TasksList from './tasksList'
 
 
 class App extends Component {
@@ -6,6 +7,7 @@ class App extends Component {
     return (
       <div>
         <h1>Priority Tasks</h1>
+        <TasksList />
       </div>
 
     );
