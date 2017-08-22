@@ -2,7 +2,7 @@ import {SAVE_TASK} from './type';
 import axios from 'axios';
 
 export const saveTask = inputsValue => {
-    let url = 'http://localhost:8080/tasks';
+    const url = 'http://localhost:8080/tasks';
     var task = {
         name: inputsValue,
         createdAt: new Date(),
