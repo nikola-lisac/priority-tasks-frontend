@@ -8,7 +8,7 @@ const INIT_STATE = {
 const taskReducer = (state = INIT_STATE, action) => {
     switch (action.type) {
         case SAVE_TASK :
-            return state;
+            return { ...state, allTasks : state.allTasks.concat(action.payload)};
 
         case ALL_TASKS :
             return { ...state, allTasks : action.payload };
