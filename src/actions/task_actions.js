@@ -1,4 +1,5 @@
 import {SAVE_TASK} from './type';
+import {ALL_TASKS} from './type';
 import axios from 'axios';
 
 export const saveTask = inputsValue => {
@@ -18,5 +19,19 @@ export const saveTask = inputsValue => {
         }).catch(error => {
             console.log(error)
         });
+    }
+};
+
+export const getAllTasks = () => {
+    const url = 'http://localhost:8080/tasks';
+    return (dispatch) => {
+        return axios.get(url).then(response => {
+            dispatch({
+                type : ALL_TASKS,
+                payload : response.data
+            })
+        }).catch(error => {
+            console.log(error)
+        })
     }
 };
