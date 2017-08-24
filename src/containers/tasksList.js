@@ -14,9 +14,7 @@ class TasksList extends Component {
                 <ul>
                     {
                         this.props.tasks.map(value => {
-                            return (
-                                <li key={value.id}>TASK NAME : {value.name}</li>
-                            )
+                            return <li key={value.id}>TASK NAME : {value.name}</li>
                         })
                     }
                 </ul>
@@ -27,7 +25,7 @@ class TasksList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.allTasks
+        tasks : state.sort((a,b) => b.id - a.id)
     }
 };
 
