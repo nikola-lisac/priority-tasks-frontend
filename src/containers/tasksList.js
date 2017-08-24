@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getAllTasks } from '../actions/task_actions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getAllTasks} from '../actions/task_actions';
 
 class TasksList extends Component {
 
@@ -25,7 +25,7 @@ class TasksList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tasks : state.sort((a,b) => b.id - a.id)
+        tasks: state.sort((a, b) => b.id - a.id)
     }
 };
 

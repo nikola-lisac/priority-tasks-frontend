@@ -12,13 +12,13 @@ class Task extends Component {
     }
 
     onChangeHandler = (evt) => {
-        this.setState({task : evt.target.value})
+        this.setState({task: evt.target.value})
     };
 
     onSubmitHandler = (evt) => {
         evt.preventDefault();
         this.props.saveTask(this.state.task);
-        this.setState({task : ''})
+        this.setState({task: ''})
     };
 
     render = () => {

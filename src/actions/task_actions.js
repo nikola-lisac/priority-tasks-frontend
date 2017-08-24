@@ -27,8 +27,8 @@ export const getAllTasks = () => {
     return (dispatch) => {
         return axios.get(url).then(response => {
             dispatch({
-                type : ALL_TASKS,
-                payload : response.data
+                type: ALL_TASKS,
+                payload: response.data
             })
         }).catch(error => {
             console.log(error)
