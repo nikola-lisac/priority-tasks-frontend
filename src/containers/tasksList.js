@@ -25,7 +25,7 @@ class TasksList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.sort((a, b) => b.id - a.id)
+        tasks: state
     }
 };
 
