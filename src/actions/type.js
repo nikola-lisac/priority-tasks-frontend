@@ -1,2 +1,2 @@
 export const SAVE_TASK = 'SAVE_TASK';
-export const ALL_TASKS = 'ALL_TASKS';
+export const GET_ALL_TASKS = 'GET_ALL_TASKS';
