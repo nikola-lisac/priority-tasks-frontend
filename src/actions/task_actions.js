@@ -1,6 +1,6 @@
-import { SAVE_TASK } from './type';
-import { GET_ALL_TASKS } from './type';
-import { COMPLETE_TASK } from './type';
+import {SAVE_TASK} from './type';
+import {GET_ALL_TASKS} from './type';
+import {COMPLETE_TASK} from './type';
 import axios from 'axios';
 
 export const saveTask = inputsValue => {
@@ -38,11 +38,15 @@ export const getAllTasks = () => {
 };
 
 export const completeTask = id => {
-
-    return dispatch => {
-        dispatch({
-            type : COMPLETE_TASK,
-            payload : id
+    const url = 'http://localhost:8080/tasks/' + id;
+    return (dispatch) => {
+        return axios.put(url).then(response => {
+            dispatch({
+                type: COMPLETE_TASK,
+                payload: id
+            })
+        }).catch(error => {
+            console.log(error)
         })
     }
 };
