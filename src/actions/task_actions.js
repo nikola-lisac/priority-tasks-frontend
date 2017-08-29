@@ -1,5 +1,6 @@
-import {SAVE_TASK} from './type';
-import {GET_ALL_TASKS} from './type';
+import { SAVE_TASK } from './type';
+import { GET_ALL_TASKS } from './type';
+import { COMPLETE_TASK } from './type';
 import axios from 'axios';
 
 export const saveTask = inputsValue => {
@@ -32,6 +33,16 @@ export const getAllTasks = () => {
             })
         }).catch(error => {
             console.log(error)
+        })
+    }
+};
+
+export const completeTask = id => {
+
+    return dispatch => {
+        dispatch({
+            type : COMPLETE_TASK,
+            payload : id
         })
     }
 };
