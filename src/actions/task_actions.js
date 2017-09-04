@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export const saveTask = inputsValue => {
     const url = 'http://localhost:8080/tasks';
-    var task = {
+    let task = {
         name: inputsValue,
         createdAt: new Date(),
         completed: false

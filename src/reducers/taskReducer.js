@@ -18,7 +18,7 @@ const taskReducer = (state = [], action) => {
 
                 if (value.id === action.payload && value.completed === false) {
                     position = index;
-                    task = {...value, completed : true};
+                    task = {...value, completed: true};
                     return task;
                 }
 
@@ -31,18 +31,18 @@ const taskReducer = (state = [], action) => {
                 task
             ];
 
-            //  This also works :
+        //  This also works :
 
-            // let arr = state.slice();
-            //
-            // for(let [index, value] of arr.entries()) {
-            //     if(value.id === action.payload && value.completed === false) {
-            //         arr.splice(index, 1);
-            //         arr.push({...value, completed : true})
-            //     }
-            // }
-            //
-            // return arr;
+        // let arr = state.slice();
+        //
+        // for(let [index, value] of arr.entries()) {
+        //     if(value.id === action.payload && value.completed === false) {
+        //         arr.splice(index, 1);
+        //         arr.push({...value, completed : true})
+        //     }
+        // }
+        //
+        // return arr;
 
         default :
             return state;
