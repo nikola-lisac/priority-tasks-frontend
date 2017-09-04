@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Task = (props) => (
+const TaskItem = (props) => (
     <div>
         <li>TASK NAME : {props.task.name}</li>
     </div>
 );
 
-Task.propTypes = {
+TaskItem.propTypes = {
     task: React.PropTypes.object.isRequired,
 };
 
-export default Task;
+export default TaskItem;

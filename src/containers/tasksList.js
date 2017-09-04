@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getAllTasks} from '../actions/task_actions';
+import TaskItem from '../components/TaskItem';
 
 class TasksList extends Component {
 
@@ -13,8 +14,8 @@ class TasksList extends Component {
             <div>
                 <ul>
                     {
-                        this.props.tasks.map(value => {
-                            return <li key={value.id}>TASK NAME : {value.name}</li>
+                        this.props.tasks.map(task => {
+                            return <TaskItem key={task.id} task={task}/>
                         })
                     }
                 </ul>
