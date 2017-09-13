@@ -1,5 +1,7 @@
 import {SAVE_TASK} from './type';
 import {GET_ALL_TASKS} from './type';
+import {COMPLETE_TASK} from './type';
+import {POSTPONE_TASK} from './type';
 import axios from 'axios';
 
 export const saveTask = inputsValue => {
@@ -29,6 +31,34 @@ export const getAllTasks = () => {
             dispatch({
                 type: GET_ALL_TASKS,
                 payload: response.data
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+};
+
+export const completeTask = id => {
+    const url = 'http://localhost:8080/tasks/' + id;
+    return (dispatch) => {
+        return axios.put(url).then(response => {
+            dispatch({
+                type: COMPLETE_TASK,
+                payload: id
+            })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+};
+
+export const postponeTask = id => {
+    const url = 'http://localhost:8080/tasks/' + id;
+    return (dispatch) => {
+        return axios.post(url).then(response => {
+            dispatch({
+                type: POSTPONE_TASK,
+                payload: id
             })
         }).catch(error => {
             console.log(error)
