@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TaskItem = (props) => (
-    <div className={(props.task.completed) ? 'completedTask' : 'none'}>
+    <div className={(props.task.completed) ? 'completed-task' : 'none'}>
         <h4>Task {props.task.id}:</h4>
         {props.task.name}
     </div>
