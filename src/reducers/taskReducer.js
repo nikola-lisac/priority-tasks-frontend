@@ -7,29 +7,33 @@ const taskReducer = (state = [], action) => {
     switch (action.type) {
         case SAVE_TASK :
             return [action.payload, ...state];
-            break;
+
         case GET_ALL_TASKS :
             return action.payload;
-            break;
+
         case COMPLETE_TASK:
             let position = 0;
             let task = {};
+
             let arr = state.map((value, index) => {
+
                 if (value.id === action.payload && value.completed === false) {
                     position = index;
                     task = {...value, completed: true};
                     return task;
                 }
+
                 return value;
             });
+
             return [
                 ...arr.slice(0, position),
                 ...arr.slice(position + 1),
                 task
             ];
-            break;
 
-        /********Thanks Bojan Nakic******/
+        /* Thanks Bojan Jakic */
+
         //  This also works :
         // let arr = state.slice();
         // for(let [index, value] of arr.entries()) {
@@ -42,26 +46,27 @@ const taskReducer = (state = [], action) => {
 
         case POSTPONE_TASK :
             let positionPostponeTask = 0;
-            let taskPostponed = {};
-            let arrPostpone = state.map((value, index) => {
+            let taskPostpone = {};
+
+            let arrPostponeTask = state.map((value, index) => {
                 if (value.id === action.payload && value.completed === false) {
                     positionPostponeTask = index;
-                    taskPostponed = {...value, postponeTask: true};
-                    return taskPostponed;
+                    taskPostpone = {...value, postponeTask: true};
+                    return taskPostpone;
                 }
                 return value;
             });
             return [
-                ...arrPostpone.slice(0, positionPostponeTask),
-                taskPostponed,
-                ...arrPostpone.slice(positionPostponeTask + 1)
+                taskPostpone,
+                ...arrPostponeTask.slice(0, positionPostponeTask),
+                ...arrPostponeTask.slice(positionPostponeTask + 1),
+
             ];
-            break;
 
         default :
             return state;
     }
 
 };
-
 export default taskReducer;
+

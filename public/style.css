@@ -1,7 +1,7 @@
-.completed-task {
+.complete-task {
     text-decoration: line-through;
 }
 
 .hidden {
-    visibility: hidden;
+    visibility: visible;
 }

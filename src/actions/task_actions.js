@@ -3,12 +3,13 @@ import {GET_ALL_TASKS} from './type';
 import {COMPLETE_TASK} from './type';
 import {POSTPONE_TASK} from './type';
 import axios from 'axios';
+import moment from 'moment';
 
 export const saveTask = inputsValue => {
     const url = 'http://localhost:8080/tasks';
     var task = {
         name: inputsValue,
-        createdAt: new Date(),
+        createdAt: moment().format('YYYY-MM-DD'),
         completed: false
     };
 
