@@ -5,20 +5,20 @@ const Button = (props) => (
     <button
         key={props.key}
         className={
-            props.complete ?
+            props.completed ?
                 'hidden' :
                 props.text === 'Postpone' ?
                     'glyphicon glyphicon-time' :
                     'glyphicon glyphicon-trash'}
         onClick={props.onClick}
-        disabled={props.complete}
+        disabled={props.completed}
     >
         {props.text}
     </button>
 );
 
 Button.propTypes = {
-    complete: PropTypes.bool.isRequired,
+    completed: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
 };
 
