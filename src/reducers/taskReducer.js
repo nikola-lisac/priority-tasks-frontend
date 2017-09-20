@@ -1,15 +1,32 @@
 import {SAVE_TASK} from '../actions/type';
 import {GET_ALL_TASKS} from '../actions/type';
 import {COMPLETE_TASK} from '../actions/type';
-import {POSTPONE_TASK} from '../actions/type'
+import {POSTPONE_TASK} from '../actions/type';
+import moment from 'moment';
 
 const taskReducer = (state = [], action) => {
     switch (action.type) {
         case SAVE_TASK :
             return [action.payload, ...state];
-
+            break;
         case GET_ALL_TASKS :
+            let positionGet = 0;
+            let taskGet = {};
+            let arrGet = action.payload.map((value, index) => {
+                if (value.createdAt > moment().format('YYYY-MM-DD')) {
+                    positionGet = index;
+                    taskGet = {...value, postpone: true};
+                    return taskGet;
+                }
+                return value;
+            });
+            return [
+                taskGet,
+                ...arrGet.slice(0, positionGet),
+                ...arrGet.slice(positionGet + 1)
+            ];
             return action.payload;
+            break;
 
         case COMPLETE_TASK:
             let position = 0;
@@ -31,7 +48,7 @@ const taskReducer = (state = [], action) => {
                 ...arr.slice(position + 1),
                 task
             ];
-
+            break;
         /* Thanks Bojan Jakic */
 
         //  This also works :
@@ -62,9 +79,10 @@ const taskReducer = (state = [], action) => {
                 ...arrPostponeTask.slice(positionPostponeTask + 1),
 
             ];
-
+            break;
         default :
             return state;
+            break;
     }
 
 };
