@@ -12,20 +12,22 @@ const taskReducer = (state = [], action) => {
         case GET_ALL_TASKS :
             let positionGet = 0;
             let taskGet = {};
-            let arrGet = action.payload.map((value, index) => {
-                if (value.createdAt > moment().format('YYYY-MM-DD')) {
-                    positionGet = index;
-                    taskGet = {...value, postpone: true};
-                    return taskGet;
-                }
-                return value;
-            });
-            return [
-                taskGet,
-                ...arrGet.slice(0, positionGet),
-                ...arrGet.slice(positionGet + 1),
-            ];
-
+            if (action.payload.length > 0) {
+                let arrGet = action.payload.map((value, index) => {
+                    if (value.createdAt > moment().format('YYYY-MM-DD')) {
+                        positionGet = index;
+                        taskGet = {...value, postpone: true};
+                        return taskGet;
+                    }
+                    return value;
+                });
+                return [
+                    taskGet,
+                    ...arrGet.slice(0, positionGet),
+                    ...arrGet.slice(positionGet + 1),
+                ];
+            }
+            return action.payload;
 
         case COMPLETE_TASK:
             let position = 0;

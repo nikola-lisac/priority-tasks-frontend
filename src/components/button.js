@@ -18,7 +18,6 @@ const Button = (props) => (
 );
 
 Button.propTypes = {
-    completed: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
 };
 

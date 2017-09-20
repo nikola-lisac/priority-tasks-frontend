@@ -47,13 +47,14 @@ class TasksList extends React.Component {
                                         completed={task.postpone || task.completed}
                                         className={task.completed}
                                         onClick={() => this.onPostponeHandler(task.id)}
-                                        disabled={task.completed || task.postpone}/>
+                                        disabled={task.completed || task.postpone}
+                                />
                                 <Button text='Complete'
                                         completed={task.completed}
                                         className={task.completed}
                                         onClick={() => this.onClickHandler(task.id)}
-                                        disabled={task.completed}/>
-
+                                        disabled={task.completed}
+                                />
                             </div>
                         }
                     )
