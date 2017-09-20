@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import TasksList from '../containers/tasksList'
-import Task from '../containers/task'
+import TasksList from '../containers/tasksList';
+import Task from '../containers/task';
+import Tabs from '../components/tabs';
 
 class App extends Component {
     render() {
@@ -8,6 +9,7 @@ class App extends Component {
             <div>
                 <h1>Priority Tasks</h1>
                 <Task />
+                <Tabs/>
                 <TasksList />
             </div>
         );
