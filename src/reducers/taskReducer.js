@@ -51,7 +51,7 @@ const taskReducer = (state = [], action) => {
             let arrPostponeTask = state.map((value, index) => {
                 if (value.id === action.payload && value.completed === false) {
                     positionPostponeTask = index;
-                    taskPostpone = {...value, postponeTask: true};
+                    taskPostpone = {...value, postpone: true};
                     return taskPostpone;
                 }
                 return value;
