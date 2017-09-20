@@ -7,7 +7,6 @@ import Button from '../components/button';
 
 class TasksList extends React.Component {
 
-
     componentDidMount = () => {
         this.props.getAllTasks();
     };
@@ -24,10 +23,10 @@ class TasksList extends React.Component {
         switch (filter) {
             case 'TODAY':
                 return tasks.filter(task => !task.postpone);
-                break;
+
             case 'TOMORROW':
                 return tasks.filter(task => task.postpone);
-                break;
+
             default:
                 throw new Error('Unknown filter: ' + filter)
         }

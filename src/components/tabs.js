@@ -4,13 +4,16 @@ import FilterLink from '../containers/filterLink';
 const Tabs = () => (
 
     <ul className="nav navbar-right">
-        <FilterLink filter="TODAY">
-            Today
-        </FilterLink>
-        <FilterLink filter="TOMORROW">
-            Tomorrow
-        </FilterLink>
-
+        <li>
+            <FilterLink filter="TODAY">
+                Today
+            </FilterLink>
+        </li>
+        <li>
+            <FilterLink filter="TOMORROW">
+                Tomorrow
+            </FilterLink>
+        </li>
     </ul>
 );
 

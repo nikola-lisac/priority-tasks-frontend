@@ -23,9 +23,11 @@ class Task extends Component {
 
     render = () => {
         return (
-            <form onSubmit={(evt) => this.onSubmitHandler(evt)}>
-                <input value={this.state.task} type="text" onChange={(evt) => this.onChangeHandler(evt)}/>
-            </form>
+            <div className="container">
+                <form onSubmit={(evt) => this.onSubmitHandler(evt)}>
+                    <input value={this.state.task} type="text" placeholder="Your next task..." onChange={(evt) => this.onChangeHandler(evt)}/>
+                </form>
+            </div>
         )
     };
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TaskItem = (props) => (
     <div className={(props.task.completed) ? 'complete-task' : 'none'}>
-        <h4>Task name:</h4>
+        <h5>Task name:</h5>
         {props.task.name}
     </div>
 );
