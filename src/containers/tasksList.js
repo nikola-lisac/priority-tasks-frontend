@@ -35,10 +35,10 @@ class TasksList extends React.Component {
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
-            <div>
+            <div className="row">
                 {
                     visibleTasks.map((task) => {
-                            return <div id="tasks" key={Math.random()}>
+                        return <div id="tasks" className="col-sm-12" key={Math.random()}>
                                 <TaskItem
                                     className={task.completed}
                                     task={task}
@@ -76,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         completeTask: id => dispatch(completeTask(id)),
         getAllTasks: () => dispatch(getAllTasks()),
-        postponeTask: id => dispatch(postponeTask(id))
+        postponeTask: id => dispatch(postponeTask(id)),
+        onClick: id => dispatch(postponeTask(id))
     }
 
 };

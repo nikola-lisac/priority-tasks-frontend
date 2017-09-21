@@ -135,8 +135,9 @@ a:active {
     margin-top: -1px;
 }
 
-Button {
+#button {
     float: right;
+
 }
 
 #task-item {
