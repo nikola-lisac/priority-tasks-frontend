@@ -10,9 +10,9 @@ const taskReducer = (state = [], action) => {
             return [action.payload, ...state];
 
         case GET_ALL_TASKS :
-            let positionGet = 0;
-            let taskGet = {};
-            if (action.payload.length > 0) {
+            if (action.payload.length > 1) {
+                let positionGet = 0;
+                let taskGet = {};
                 let arrGet = action.payload.map((value, index) => {
                     if (value.createdAt > moment().format('YYYY-MM-DD')) {
                         positionGet = index;
