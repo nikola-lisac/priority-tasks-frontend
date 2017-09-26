@@ -56,14 +56,22 @@ export const completeTask = id => {
 
 export const postponeTask = id => {
     const url = 'http://localhost:8080/tasks/' + id;
+    const urlGet = 'http://localhost:8080/tasks';
     return (dispatch) => {
-        return axios.post(url).then(response => {
+        axios.post(url).then(response => {
             dispatch({
                 type: POSTPONE_TASK,
                 payload: id
-            })
-        }).catch(error => {
-            console.log(error)
+            });
+            return (axios.get(urlGet).then(response => {
+                dispatch({
+                    type: GET_ALL_TASKS,
+                    payload: response.data
+                })
+            }))
+                .catch(error => {
+                    console.log(error)
+                })
         })
     }
 };
