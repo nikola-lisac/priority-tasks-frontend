@@ -83,9 +83,8 @@ const taskReducer = (state = [], action) => {
 
         default :
             return state;
-
     }
 
 };
-export default taskReducer;
 
+export default taskReducer;

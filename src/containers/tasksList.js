@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {completeTask, getAllTasks, postponeTask} from '../actions/task_actions';
 import TaskItem from '../components/taskItem';
 import Button from '../components/button';
 
-
-class TasksList extends React.Component {
+class TasksList extends Component {
 
     componentDidMount = () => {
         this.props.getAllTasks();
@@ -64,7 +63,6 @@ class TasksList extends React.Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         tasks: state.taskReducer,
@@ -79,7 +77,6 @@ const mapDispatchToProps = (dispatch) => {
         postponeTask: id => dispatch(postponeTask(id)),
         onClick: id => dispatch(postponeTask(id))
     }
-
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TasksList);
+export default connect(mapStateToProps, mapDispatchToProps)(TasksList)

@@ -7,7 +7,7 @@ import moment from 'moment';
 
 export const saveTask = inputsValue => {
     const url = 'http://localhost:8080/tasks';
-    var task = {
+    let task = {
         name: inputsValue,
         createdAt: moment().format('YYYY-MM-DD'),
         completed: false
