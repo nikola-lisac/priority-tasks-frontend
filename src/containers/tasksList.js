@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getAllTasks} from '../actions/task_actions';
-import {completeTask} from '../actions/task_actions';
-import CompleteTask from '../components/completeTask'
+import {completeTask, getAllTasks, postponeTask, deleteTask} from '../actions/task_actions';
+import TaskItem from '../components/taskItem';
+import Button from '../components/button';
 
 class TasksList extends Component {
 
@@ -10,26 +10,63 @@ class TasksList extends Component {
         this.props.getAllTasks();
     };
 
-    onClickHandler = (id) => {
-        this.props.completeTask(id)
+    onCompletedHandler = (id) => {
+        this.props.completeTask(id);
+    };
+
+    onPostponeHandler = (id) => {
+        this.props.postponeTask(id);
+    };
+
+    onDeleteHandler = (id) => {
+        this.props.deleteTask(id);
+    };
+
+
+    getVisibleTasks = (tasks, filter) => {
+        switch (filter) {
+            case 'TODAY':
+                return tasks.filter(task => !task.postpone);
+            case 'TOMORROW':
+                return tasks.filter(task => task.postpone);
+            default:
+                throw new Error('Unknown filter: ' + filter)
+        }
     };
 
     render = () => {
+        let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
-            <div>
-
+            <div className="row">
                 {
-                    this.props.tasks.map(value => {
+                    visibleTasks.map((task) => {
                         return (
-                            <div key={value.id}>
-                                <span
-                                    className={value.completed ? 'completed-task' : ''}>TASK NAME : {value.name}</span><CompleteTask
-                                completed={value.completed} clickHandler={() => this.onClickHandler(value.id)}/>
+                            <div id="tasks" className="col-sm-12" key={Math.random()}>
+                                <TaskItem
+                                    className={task.completed}
+                                    task={task}
+                                    completed={task.completed}
+                                    onClick={() => {
+                                        if (!task.completed)
+                                            return this.onCompletedHandler(task.id)
+                                    }}
+                                    disabled={task.completed}
+                                />
+                                <Button text='Delete'
+                                        onClick={() => this.onDeleteHandler(task.id)}
+                                />
+                                <Button text='Postpone'
+                                        completed={task.postpone || task.completed}
+                                        className={task.completed}
+                                        onClick={() => this.onPostponeHandler(task.id)}
+                                        disabled={task.completed || task.postpone}
+                                />
+
                             </div>
                         )
-                    })
+                        }
+                    )
                 }
-
             </div>
         )
     }
@@ -37,14 +74,17 @@ class TasksList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state
+        tasks: state.taskReducer,
+        filter: state.filterReducer
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        completeTask: id => dispatch(completeTask(id)),
         getAllTasks: () => dispatch(getAllTasks()),
-        completeTask: id => dispatch(completeTask(id))
+        postponeTask: id => dispatch(postponeTask(id)),
+        deleteTask: id => dispatch(deleteTask(id))
     }
 };
 

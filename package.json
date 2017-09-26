@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.11",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "redux-logger": "^2.7.4"
   },
   "scripts": {
     "start": "react-scripts start",

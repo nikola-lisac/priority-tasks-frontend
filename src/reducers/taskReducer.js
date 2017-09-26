@@ -1,5 +1,9 @@
 import {SAVE_TASK} from '../actions/type';
 import {GET_ALL_TASKS} from '../actions/type';
+import {COMPLETE_TASK} from '../actions/type';
+import {POSTPONE_TASK} from '../actions/type';
+import {DELETE_TASK} from '../actions/type';
+import moment from 'moment';
 
 const taskReducer = (state = [], action) => {
     switch (action.type) {
@@ -7,10 +11,18 @@ const taskReducer = (state = [], action) => {
             return [action.payload, ...state];
 
         case GET_ALL_TASKS :
-            return action.payload;
+            let arrGet = action.payload.map((value) => {
+                if (value.createdAt > moment().format('YYYY-MM-DD')) {
+                    value = {...value, postpone: true};
+                    return value;
+                }
+                return value;
+            });
+            return [
+                ...arrGet
+            ];
 
-        case 'COMPLETE_TASK' :
-
+        case COMPLETE_TASK:
             let position = 0;
             let task = {};
 
@@ -31,18 +43,39 @@ const taskReducer = (state = [], action) => {
                 task
             ];
 
-        //  This also works :
+        /* Thanks Bojan Jakic */
 
+        //  This also works :
         // let arr = state.slice();
-        //
         // for(let [index, value] of arr.entries()) {
         //     if(value.id === action.payload && value.completed === false) {
         //         arr.splice(index, 1);
         //         arr.push({...value, completed : true})
         //     }
         // }
-        //
         // return arr;
+
+        case POSTPONE_TASK :
+            let positionPostponeTask = 0;
+            let taskPostpone = {};
+
+            let arrPostponeTask = state.map((value, index) => {
+                if (value.id === action.payload && value.completed === false) {
+                    positionPostponeTask = index;
+                    taskPostpone = {...value, postpone: true};
+                    return taskPostpone;
+                }
+                return value;
+            });
+            return [
+                taskPostpone,
+                ...arrPostponeTask.slice(0, positionPostponeTask),
+                ...arrPostponeTask.slice(positionPostponeTask + 1),
+
+            ];
+
+        case DELETE_TASK :
+            return [action.payload, ...state];
 
         default :
             return state;
