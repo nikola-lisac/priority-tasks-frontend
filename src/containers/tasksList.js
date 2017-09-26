@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {completeTask, getAllTasks, postponeTask, deleteTask} from '../actions/task_actions';
+import {completeTask, getAllTasks, postponeTask, deleteTask, uncompletedTask} from '../actions/task_actions';
 import TaskItem from '../components/taskItem';
 import Button from '../components/button';
 
@@ -12,6 +12,10 @@ class TasksList extends Component {
 
     onCompletedHandler = (id) => {
         this.props.completeTask(id);
+    };
+
+    onUncompletedHandler = (id) => {
+        this.props.uncompletedTask(id);
     };
 
     onPostponeHandler = (id) => {
@@ -47,8 +51,11 @@ class TasksList extends Component {
                                     task={task}
                                     completed={task.completed}
                                     onClick={() => {
-                                        if (!task.completed)
+                                        if (!task.completed) {
                                             return this.onCompletedHandler(task.id)
+                                        } else {
+                                            return this.onUncompletedHandler(task.id)
+                                        }
                                     }}
                                     disabled={task.completed}
                                 />
@@ -82,6 +89,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         completeTask: id => dispatch(completeTask(id)),
+        uncompletedTask: id => dispatch(uncompletedTask(id)),
         getAllTasks: () => dispatch(getAllTasks()),
         postponeTask: id => dispatch(postponeTask(id)),
         deleteTask: id => dispatch(deleteTask(id))

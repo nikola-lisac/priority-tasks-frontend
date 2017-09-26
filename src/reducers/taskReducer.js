@@ -1,6 +1,7 @@
 import {SAVE_TASK} from '../actions/type';
 import {GET_ALL_TASKS} from '../actions/type';
 import {COMPLETE_TASK} from '../actions/type';
+import {UNCOMPLETED_TASK} from "../actions/type";
 import {POSTPONE_TASK} from '../actions/type';
 import {DELETE_TASK} from '../actions/type';
 import moment from 'moment';
@@ -43,17 +44,26 @@ const taskReducer = (state = [], action) => {
                 task
             ];
 
-        /* Thanks Bojan Jakic */
+        case UNCOMPLETED_TASK:
+            let positionUn = 0;
+            let taskUn = {};
 
-        //  This also works :
-        // let arr = state.slice();
-        // for(let [index, value] of arr.entries()) {
-        //     if(value.id === action.payload && value.completed === false) {
-        //         arr.splice(index, 1);
-        //         arr.push({...value, completed : true})
-        //     }
-        // }
-        // return arr;
+            let arrUn = state.map((value, index) => {
+
+                if (value.id === action.payload && value.completed === true) {
+                    positionUn = index;
+                    taskUn = {...value, completed: false};
+                    return taskUn;
+                }
+
+                return value;
+            });
+
+            return [
+                taskUn,
+                ...arrUn.slice(0, positionUn),
+                ...arrUn.slice(positionUn + 1)
+            ];
 
         case POSTPONE_TASK :
             let positionPostponeTask = 0;
