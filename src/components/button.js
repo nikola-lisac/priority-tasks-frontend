@@ -5,11 +5,11 @@ const Button = (props) => (
     <button id="button"
             key={props.key}
             className={
-            props.completed ?
-                'hidden' :
-                props.text === 'Postpone' ?
-                    'glyphicon glyphicon-time' :
-                    'glyphicon glyphicon-trash'}
+                props.completed ?
+                    'hidden' :
+                    props.text === 'Postpone' ?
+                        'glyphicon glyphicon-time' :
+                        'glyphicon glyphicon-trash'}
             onClick={props.onClick}
             disabled={props.completed}
     >

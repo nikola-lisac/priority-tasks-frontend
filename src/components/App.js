@@ -8,9 +8,9 @@ class App extends Component {
         return (
             <div>
                 <h1 className="container">Priority Tasks</h1>
-                <Task />
-                <Tabs />
-                <TasksList />
+                <Task/>
+                <Tabs/>
+                <TasksList/>
             </div>
         );
     }

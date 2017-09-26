@@ -2,6 +2,7 @@ import {SAVE_TASK} from './type';
 import {GET_ALL_TASKS} from './type';
 import {COMPLETE_TASK} from './type';
 import {POSTPONE_TASK} from './type';
+import {DELETE_TASK} from "./type";
 import axios from 'axios';
 import moment from 'moment';
 
@@ -63,6 +64,28 @@ export const postponeTask = id => {
             })
         }).catch(error => {
             console.log(error)
+        })
+    }
+};
+
+export const deleteTask = id => {
+    const url = 'http://localhost:8080/task/' + id;
+    const urlGet = 'http://localhost:8080/tasks';
+    return (dispatch) => {
+        axios.delete(url).then(response => {
+            dispatch({
+                type: DELETE_TASK,
+                payload: id
+            });
+            return (axios.get(urlGet).then(response => {
+                dispatch({
+                    type: GET_ALL_TASKS,
+                    payload: response.data
+                })
+            }))
+                .catch(error => {
+                    console.log(error)
+                })
         })
     }
 };

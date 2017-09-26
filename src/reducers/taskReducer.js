@@ -1,7 +1,8 @@
 import {SAVE_TASK} from '../actions/type';
 import {GET_ALL_TASKS} from '../actions/type';
 import {COMPLETE_TASK} from '../actions/type';
-import {POSTPONE_TASK} from '../actions/type'
+import {POSTPONE_TASK} from '../actions/type';
+import {DELETE_TASK} from '../actions/type';
 import moment from 'moment';
 
 const taskReducer = (state = [], action) => {
@@ -10,24 +11,16 @@ const taskReducer = (state = [], action) => {
             return [action.payload, ...state];
 
         case GET_ALL_TASKS :
-            if (action.payload.length > 1) {
-                let positionGet = 0;
-                let taskGet = {};
-                let arrGet = action.payload.map((value, index) => {
-                    if (value.createdAt > moment().format('YYYY-MM-DD')) {
-                        positionGet = index;
-                        taskGet = {...value, postpone: true};
-                        return taskGet;
-                    }
+            let arrGet = action.payload.map((value) => {
+                if (value.createdAt > moment().format('YYYY-MM-DD')) {
+                    value = {...value, postpone: true};
                     return value;
-                });
-                return [
-                    taskGet,
-                    ...arrGet.slice(0, positionGet),
-                    ...arrGet.slice(positionGet + 1),
-                ];
-            }
-            return action.payload;
+                }
+                return value;
+            });
+            return [
+                ...arrGet
+            ];
 
         case COMPLETE_TASK:
             let position = 0;
@@ -80,6 +73,9 @@ const taskReducer = (state = [], action) => {
                 ...arrPostponeTask.slice(positionPostponeTask + 1),
 
             ];
+
+        case DELETE_TASK :
+            return [action.payload, ...state];
 
         default :
             return state;
