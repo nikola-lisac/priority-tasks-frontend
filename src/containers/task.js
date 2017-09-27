@@ -7,18 +7,47 @@ class Task extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            task: ''
-        }
+            task: '',
+            inputError: ''
+        };
     }
 
     onChangeHandler = (evt) => {
-        this.setState({task: evt.target.value})
+        this.setState({
+            task: evt.target.value,
+            inputError: ''
+        })
+    };
+
+    validate = () => {
+        let isError = false;
+        const errors = {
+            inputError: ''
+        };
+        if (this.state.task.length > 200) {
+            isError = true;
+            errors.inputError = 'Task is too long, 200 characters allowed!'
+        }
+        if (this.state.task.length === 0) {
+            isError = true;
+            errors.inputError = 'Please enter a task';
+        }
+        if (isError) {
+            this.setState(errors);
+        }
+        return isError;
     };
 
     onSubmitHandler = (evt) => {
         evt.preventDefault();
-        this.props.saveTask(this.state.task);
-        this.setState({task: ''})
+        const error = this.validate();
+        if (!error) {
+            this.props.saveTask(this.state.task);
+            this.setState({
+                task: '',
+                inputError: ''
+            })
+        }
     };
 
     render = () => {
@@ -29,7 +58,11 @@ class Task extends Component {
                         value={this.state.task}
                         type="text"
                         placeholder="Your next task..."
-                        onChange={(evt) => this.onChangeHandler(evt)}/>
+                        onChange={(evt) => this.onChangeHandler(evt)}
+                    />
+                    <p
+                        style={{color: "red"}}>{this.state.inputError}
+                    </p>
                 </form>
             </div>
         )

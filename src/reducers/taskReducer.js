@@ -75,7 +75,7 @@ const taskReducer = (state = [], action) => {
                     taskPostpone = {...value, postpone: true};
                     return taskPostpone;
                 }
-                return value;
+                return value
             });
             return [
                 taskPostpone,
