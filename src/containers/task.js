@@ -10,16 +10,9 @@ class Task extends Component {
             task: '',
             inputError: ''
         };
-    }
-
-    onChangeHandler = (evt) => {
-        this.setState({
-            task: evt.target.value,
-            inputError: ''
-        })
     };
 
-    validate = () => {
+    validateInputField = () => {
         let isError = false;
         const errors = {
             inputError: ''
@@ -28,19 +21,30 @@ class Task extends Component {
             isError = true;
             errors.inputError = 'Task is too long, 200 characters allowed!'
         }
+        ;
         if (this.state.task.length === 0) {
             isError = true;
             errors.inputError = 'Please enter a task';
         }
+        ;
         if (isError) {
             this.setState(errors);
         }
+        ;
         return isError;
+    };
+
+
+    onChangeHandler = (evt) => {
+        this.setState({
+            task: evt.target.value,
+            inputError: ''
+        })
     };
 
     onSubmitHandler = (evt) => {
         evt.preventDefault();
-        const error = this.validate();
+        const error = this.validateInputField();
         if (!error) {
             this.props.saveTask(this.state.task);
             this.setState({

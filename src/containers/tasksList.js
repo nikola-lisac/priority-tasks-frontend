@@ -26,7 +26,6 @@ class TasksList extends Component {
         this.props.deleteTask(id);
     };
 
-
     getVisibleTasks = (tasks, filter) => {
         switch (filter) {
             case 'TODAY':

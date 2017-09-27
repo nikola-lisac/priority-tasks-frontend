@@ -19,31 +19,18 @@ body {
     text-align: center;
 }
 
-.container h1 {
-    margin: 0;
-    padding: 20px;
-    font-size: 48px;
-}
-
-.container .btn {
-    border: 0;
-    padding: 15px;
-    margin: 10px;
-    width: 40%;
-    font-size: 15px;
-    outline: none;
-    border-radius: 3px;
-    color: #FFF;
-    font-weight: bold;
-}
 
 #task-list {
     list-style-type: none;
     font-size: 25px;
 }
 
-input {
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
     padding: 5px;
+    width: 50%;
     font-size: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
@@ -85,6 +72,7 @@ h4 {
 
 #tasks {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
 }
 
 .box {
@@ -141,5 +129,10 @@ a:active {
 }
 
 #task-item {
+    text-align: left;
+}
+
+#task {
+    cursor: pointer;
     text-align: left;
 }
