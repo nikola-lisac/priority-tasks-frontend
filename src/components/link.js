@@ -6,7 +6,9 @@ const Link = ({active, children, onClick}) => {
         return <span>{children}</span>
     }
     return (
-        <ul id="ul-link" className='nav nav-tabs'>
+        <ul id="ul-link"
+            className='nav nav-tabs'
+        >
             <li>
                 <a
                     onClick={e => {

@@ -7,7 +7,7 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                <h1 className="container">Priority Tasks</h1>
+                <h1>Priority Tasks</h1>
                 <Task/>
                 <Tabs/>
                 <TasksList/>

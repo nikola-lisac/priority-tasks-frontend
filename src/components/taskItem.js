@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TaskItem = (props) => (
     <div
@@ -13,5 +14,10 @@ const TaskItem = (props) => (
         {props.task.name}
     </div>
 );
+
+TaskItem.propTypes = {
+    completed: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired
+};
 
 export default TaskItem;
