@@ -6,7 +6,7 @@ import Tabs from '../components/tabs';
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1 className="container">Priority Tasks</h1>
                 <Task/>
                 <Tabs/>

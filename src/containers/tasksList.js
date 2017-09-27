@@ -40,11 +40,15 @@ class TasksList extends Component {
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
-            <div className="row">
+            <div id="row" className="row">
                 {
                     visibleTasks.map((task) => {
                         return (
-                            <div id="tasks" className="col-sm-12" key={Math.random()}>
+                            <div
+                                id="tasks"
+                                key={Math.random()}
+                                className="col-sm-12"
+                            >
                                 <TaskItem
                                     className={task.completed}
                                     task={task}
@@ -67,7 +71,6 @@ class TasksList extends Component {
                                         onClick={() => this.onPostponeHandler(task.id)}
                                         disabled={task.completed || task.postpone}
                                 />
-
                             </div>
                         )
                         }

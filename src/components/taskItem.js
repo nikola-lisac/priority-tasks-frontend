@@ -2,7 +2,7 @@ import React from 'react';
 
 const TaskItem = (props) => (
     <div
-        id='task'
+        id='task-item'
         className={
             props.task.completed ?
                 'complete-task' :
@@ -10,7 +10,6 @@ const TaskItem = (props) => (
         onClick={props.onClick}
         disabled={props.completed}
     >
-        <h5>Task name:</h5>
         {props.task.name}
     </div>
 );
