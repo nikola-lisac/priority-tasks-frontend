@@ -22,16 +22,13 @@ class Task extends Component {
             isError = true;
             errors.inputError = 'Task is too long, 200 characters allowed!'
         }
-        ;
         if (this.state.task.length === 0) {
             isError = true;
             errors.inputError = 'Please enter a task';
         }
-        ;
         if (isError) {
             this.setState(errors);
         }
-        ;
         return isError;
     };
 
