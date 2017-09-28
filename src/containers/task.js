@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {saveTask} from '../actions/task_actions.js';
+import {setVisibilityFilter} from "../actions/filter_actions";
 
 class Task extends Component {
 
@@ -34,7 +35,6 @@ class Task extends Component {
         return isError;
     };
 
-
     onChangeHandler = (evt) => {
         this.setState({
             task: evt.target.value,
@@ -45,12 +45,14 @@ class Task extends Component {
     onSubmitHandler = (evt) => {
         evt.preventDefault();
         const error = this.validateInputField();
+        const filter = 'TODAY';
         if (!error) {
             this.props.saveTask(this.state.task);
             this.setState({
                 task: '',
                 inputError: ''
-            })
+            });
+            this.props.setVisibilityFilter(filter);
         }
     };
 
@@ -75,7 +77,8 @@ class Task extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        saveTask: inputValue => dispatch(saveTask(inputValue))
+        saveTask: inputValue => dispatch(saveTask(inputValue)),
+        setVisibilityFilter: filter => dispatch(setVisibilityFilter(filter))
     }
 };
 
