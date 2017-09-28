@@ -69,10 +69,9 @@ export const uncompletedTask = id => {
                     type: GET_ALL_TASKS,
                     payload: response.data
                 })
-            }))
-                .catch(error => {
-                    console.log(error)
-                })
+            })).catch(error => {
+                console.log(error)
+            })
         })
     }
 };
@@ -91,10 +90,9 @@ export const postponeTask = id => {
                     type: GET_ALL_TASKS,
                     payload: response.data
                 })
-            }))
-                .catch(error => {
-                    console.log(error)
-                })
+            })).catch(error => {
+                console.log(error)
+            })
         })
     }
 };
@@ -113,10 +111,9 @@ export const deleteTask = id => {
                     type: GET_ALL_TASKS,
                     payload: response.data
                 })
-            }))
-                .catch(error => {
-                    console.log(error)
-                })
+            })).catch(error => {
+                console.log(error)
+            })
         })
     }
 };
