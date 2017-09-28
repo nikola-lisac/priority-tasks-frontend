@@ -95,6 +95,7 @@ input[type=text] {
     cursor: pointer;
     text-align: left;
     height: 50px;
+    font-size: 12px;
 }
 
 #row {
@@ -106,4 +107,40 @@ input[type=text] {
 
 #ul-link {
     cursor: alias;
+}
+
+@media screen
+and (min-width: 800px) {
+    #task-item {
+        font-size: 15px;
+    }
+}
+
+@media screen
+and (max-width: 600px) {
+    #task-item {
+        font-size: 12px;
+        height: 100px;
+    }
+
+    input[type=text] {
+        font-size: 12px;
+    }
+
+    #button {
+        font-size: 10px;
+    }
+}
+
+@media screen
+and (max-width: 380px) {
+    #task-item {
+        font-size: 10px;
+        height: 150px;
+    }
+
+    input[type=text] {
+        font-size: 8px;
+    }
+
 }
