@@ -8,6 +8,7 @@ import moment from 'moment';
 
 const taskReducer = (state = [], action) => {
     switch (action.type) {
+
         case SAVE_TASK :
             return [action.payload, ...state];
 
@@ -24,45 +25,45 @@ const taskReducer = (state = [], action) => {
             ];
 
         case COMPLETE_TASK:
-            let position = 0;
-            let task = {};
+            let positionComplete = 0;
+            let taskComplete = {};
 
-            let arr = state.map((value, index) => {
+            let arrComplete = state.map((value, index) => {
 
                 if (value.id === action.payload && value.completed === false) {
-                    position = index;
-                    task = {...value, completed: true};
-                    return task;
+                    positionComplete = index;
+                    taskComplete = {...value, completed: true};
+                    return taskComplete;
                 }
 
                 return value;
             });
 
             return [
-                ...arr.slice(0, position),
-                ...arr.slice(position + 1),
-                task
+                ...arrComplete.slice(0, positionComplete),
+                ...arrComplete.slice(positionComplete + 1),
+                taskComplete
             ];
 
         case UNCOMPLETED_TASK:
-            let positionUn = 0;
-            let taskUn = {};
+            let positionUncompleted = 0;
+            let taskUncompleted = {};
 
-            let arrUn = state.map((value, index) => {
+            let arrUncompleted = state.map((value, index) => {
 
                 if (value.id === action.payload && value.completed === true) {
-                    positionUn = index;
-                    taskUn = {...value, completed: false};
-                    return taskUn;
+                    positionUncompleted = index;
+                    taskUncompleted = {...value, completed: false};
+                    return taskUncompleted;
                 }
 
                 return value;
             });
 
             return [
-                taskUn,
-                ...arrUn.slice(0, positionUn),
-                ...arrUn.slice(positionUn + 1)
+                taskUncompleted,
+                ...arrUncompleted.slice(0, positionUncompleted),
+                ...arrUncompleted.slice(positionUncompleted + 1)
             ];
 
         case POSTPONE_TASK :
