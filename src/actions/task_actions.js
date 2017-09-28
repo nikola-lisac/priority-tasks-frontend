@@ -28,16 +28,16 @@ export const saveTask = inputsValue => {
 };
 
 export const getAllTasks = () => {
-    const url = 'http://localhost:8080/tasks';
+    const urlGet = 'http://localhost:8080/tasks';
     return (dispatch) => {
-        return axios.get(url).then(response => {
+        return axios.get(urlGet).then(response => {
             dispatch({
                 type: GET_ALL_TASKS,
                 payload: response.data
             })
         }).catch(error => {
             console.log(error)
-        })
+        });
     }
 };
 
@@ -51,7 +51,7 @@ export const completeTask = id => {
             })
         }).catch(error => {
             console.log(error)
-        })
+        });
     }
 };
 
@@ -69,10 +69,9 @@ export const uncompletedTask = id => {
                     type: GET_ALL_TASKS,
                     payload: response.data
                 })
-            }))
-                .catch(error => {
-                    console.log(error)
-                })
+            })).catch(error => {
+                console.log(error)
+            });
         })
     }
 };
@@ -91,10 +90,9 @@ export const postponeTask = id => {
                     type: GET_ALL_TASKS,
                     payload: response.data
                 })
-            }))
-                .catch(error => {
-                    console.log(error)
-                })
+            })).catch(error => {
+                console.log(error)
+            });
         })
     }
 };
@@ -113,10 +111,9 @@ export const deleteTask = id => {
                     type: GET_ALL_TASKS,
                     payload: response.data
                 })
-            }))
-                .catch(error => {
-                    console.log(error)
-                })
+            })).catch(error => {
+                console.log(error)
+            });
         })
     }
 };

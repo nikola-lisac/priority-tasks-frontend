@@ -26,7 +26,6 @@ class TasksList extends Component {
         this.props.deleteTask(id);
     };
 
-
     getVisibleTasks = (tasks, filter) => {
         switch (filter) {
             case 'TODAY':
@@ -41,39 +40,44 @@ class TasksList extends Component {
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
-            <div className="row">
-                {
-                    visibleTasks.map((task) => {
-                        return (
-                            <div id="tasks" className="col-sm-12" key={Math.random()}>
-                                <TaskItem
-                                    className={task.completed}
-                                    task={task}
-                                    completed={task.completed}
-                                    onClick={() => {
-                                        if (!task.completed) {
-                                            return this.onCompletedHandler(task.id)
-                                        } else {
-                                            return this.onUncompletedHandler(task.id)
-                                        }
-                                    }}
-                                    disabled={task.completed}
-                                />
-                                <Button text='Delete'
-                                        onClick={() => this.onDeleteHandler(task.id)}
-                                />
-                                <Button text='Postpone'
-                                        completed={task.postpone || task.completed}
-                                        className={task.completed}
-                                        onClick={() => this.onPostponeHandler(task.id)}
-                                        disabled={task.completed || task.postpone}
-                                />
-
-                            </div>
+            <div className="container">
+                <div id="row" className="row">
+                    {
+                        visibleTasks.map((task) => {
+                                return (
+                                    <div
+                                        id="tasks"
+                                        key={Math.random()}
+                                        className="col-sm-12 col-md-12 col-lg-12"
+                                    >
+                                        <TaskItem
+                                            className={task.completed}
+                                            task={task}
+                                            completed={task.completed}
+                                            onClick={() => {
+                                                if (!task.completed) {
+                                                    return this.onCompletedHandler(task.id)
+                                                } else {
+                                                    return this.onUncompletedHandler(task.id)
+                                                }
+                                            }}
+                                            disabled={task.completed}
+                                        />
+                                        <Button text='Delete'
+                                                onClick={() => this.onDeleteHandler(task.id)}
+                                        />
+                                        <Button text='Postpone'
+                                                completed={task.postpone || task.completed}
+                                                className={task.completed}
+                                                onClick={() => this.onPostponeHandler(task.id)}
+                                                disabled={task.completed || task.postpone}
+                                        />
+                                    </div>
+                                )
+                            }
                         )
-                        }
-                    )
-                }
+                    }
+                </div>
             </div>
         )
     }
