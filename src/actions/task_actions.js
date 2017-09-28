@@ -37,7 +37,7 @@ export const getAllTasks = () => {
             })
         }).catch(error => {
             console.log(error)
-        })
+        });
     }
 };
 
@@ -51,7 +51,7 @@ export const completeTask = id => {
             })
         }).catch(error => {
             console.log(error)
-        })
+        });
     }
 };
 
@@ -71,7 +71,7 @@ export const uncompletedTask = id => {
                 })
             })).catch(error => {
                 console.log(error)
-            })
+            });
         })
     }
 };
@@ -92,7 +92,7 @@ export const postponeTask = id => {
                 })
             })).catch(error => {
                 console.log(error)
-            })
+            });
         })
     }
 };
@@ -113,7 +113,7 @@ export const deleteTask = id => {
                 })
             })).catch(error => {
                 console.log(error)
-            })
+            });
         })
     }
 };
