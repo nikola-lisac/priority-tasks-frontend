@@ -118,7 +118,7 @@ and (min-width: 800px) {
 and (max-width: 600px) {
     #task-item {
         font-size: 12px;
-        height: 100px;
+        height: 76px;
     }
 
     input[type=text] {
@@ -134,7 +134,7 @@ and (max-width: 600px) {
 and (max-width: 380px) {
     #task-item {
         font-size: 10px;
-        height: 150px;
+        height: 124px;
     }
 
     input[type=text] {
