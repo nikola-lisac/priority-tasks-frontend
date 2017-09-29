@@ -16,7 +16,6 @@ const TaskItem = (props) => (
 );
 
 TaskItem.propTypes = {
-    completed: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
 };
 
