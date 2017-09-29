@@ -48,7 +48,7 @@ export const completeTask = id => {
             dispatch({
                 type: COMPLETE_TASK,
                 payload: id
-            })
+            });
         }).catch(error => {
             console.log(error)
         });

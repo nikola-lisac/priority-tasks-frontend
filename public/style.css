@@ -20,7 +20,6 @@ body {
     position: relative;
     margin: auto;
     color: black;
-    padding: 20px;
     text-align: center;
 }
 
@@ -50,7 +49,7 @@ input[type=text] {
 
 
 #tasks:nth-child(odd) {
-    background-color: lightcyan;
+    background-color: darkorange;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -63,7 +62,7 @@ input[type=text] {
 }
 
 #selected {
-    padding-bottom: 1px;
+    padding-bottom: 5px;
     background: lightcyan;
 }
 
@@ -73,7 +72,6 @@ input[type=text] {
 
 .right-tabs .nav {
     float: right;
-    border-bottom: 0px;
 }
 
 .right-tabs .nav li {
@@ -82,8 +80,6 @@ input[type=text] {
 
 .right-tabs .tab-content {
     float: left;
-    border-top: 1px solid #ddd;
-    margin-top: -1px;
 }
 
 #button {
@@ -101,12 +97,14 @@ input[type=text] {
 #row {
     overflow: auto;
     overflow-x: hidden;
-    height: 280px;
+    height: 285px;
     text-align: left;
+    border: ridge;
 }
 
 #ul-link {
     cursor: alias;
+    border-style: ridge;
 }
 
 @media screen
