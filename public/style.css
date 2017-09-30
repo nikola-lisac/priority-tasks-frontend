@@ -46,9 +46,18 @@ input[type=text] {
     font-size: 20px;
 }
 
+#tasks {
+
+}
+
 #tasks:nth-child(odd) {
     background-color: darkorange;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    padding-right: 0px;
+}
+
+#tasks:nth-child(even) {
+    padding-right: 0px;
 }
 
 .right {
@@ -82,7 +91,6 @@ input[type=text] {
 
 #button {
     float: right;
-
 }
 
 #task-item {
