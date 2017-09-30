@@ -46,7 +46,6 @@ input[type=text] {
     font-size: 20px;
 }
 
-
 #tasks:nth-child(odd) {
     background-color: darkorange;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -99,7 +98,7 @@ input[type=text] {
     height: 285px;
     text-align: left;
     border: ridge;
-    padding-left: 0px;
+    margin: 0px;
 }
 
 #ul-link {
