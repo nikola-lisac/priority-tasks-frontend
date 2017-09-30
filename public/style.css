@@ -46,10 +46,6 @@ input[type=text] {
     font-size: 20px;
 }
 
-#tasks {
-
-}
-
 #tasks:nth-child(odd) {
     background-color: darkorange;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -60,33 +56,8 @@ input[type=text] {
     padding-right: 0px;
 }
 
-.right {
-    text-align: right;
-}
-
-#content {
-    border: 1px solid;
-}
-
-#selected {
-    padding-bottom: 5px;
-    background: lightcyan;
-}
-
-.nav-rtl li {
-    float: right;
-}
-
 .right-tabs .nav {
     float: right;
-}
-
-.right-tabs .nav li {
-    float: left;
-}
-
-.right-tabs .tab-content {
-    float: left;
 }
 
 #button {
@@ -112,6 +83,11 @@ input[type=text] {
 #ul-link {
     cursor: alias;
     border-style: ridge;
+    border-top-left-radius: 30px 25px;
+}
+
+.nav-tabs {
+    border-top-left-radius: 30px 25px;
 }
 
 @media screen
@@ -155,5 +131,4 @@ and (max-width: 380px) {
     input[type=text] {
         font-size: 8px;
     }
-
 }
