@@ -40,7 +40,7 @@ class TasksList extends Component {
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
-            <div className="container">
+            <div>
                 <div id="row" className="row">
                     {
                         visibleTasks.map((task) => {

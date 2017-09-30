@@ -99,6 +99,7 @@ input[type=text] {
     height: 285px;
     text-align: left;
     border: ridge;
+    padding-left: 0px;
 }
 
 #ul-link {
