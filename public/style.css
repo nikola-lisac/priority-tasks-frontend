@@ -48,11 +48,12 @@ input[type=text] {
 
 #tasks:nth-child(odd) {
     background-color: darkorange;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 8px 6px -6px black inset;
     padding-right: 0px;
 }
 
 #tasks:nth-child(even) {
+    box-shadow: 0 8px 6px -6px black inset;
     padding-right: 0px;
 }
 
