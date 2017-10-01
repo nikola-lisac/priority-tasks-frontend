@@ -74,12 +74,13 @@ input[type=text] {
     text-align: left;
     height: 50px;
     font-size: 12px;
+    s
 }
 
 #row {
     overflow: auto;
     overflow-x: hidden;
-    height: 285px;
+    height: 325px;
     text-align: left;
     border: ridge;
     border-bottom: outset;
@@ -113,7 +114,7 @@ and (min-width: 800px) {
 and (max-width: 600px) {
     #task-item {
         font-size: 12px;
-        height: 76px;
+        height: 80px;
     }
 
     input[type=text] {
@@ -129,7 +130,7 @@ and (max-width: 600px) {
 and (max-width: 450px) {
     #task-item {
         font-size: 10px;
-        height: 76px;
+        height: 80px;
     }
 
 }
@@ -137,7 +138,7 @@ and (max-width: 450px) {
 @media screen
 and (max-width: 380px) {
     #task-item {
-        height: 124px;
+        height: 133px;
     }
 
     input[type=text] {
