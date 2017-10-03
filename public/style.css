@@ -112,6 +112,18 @@ input[type=text]:focus {
     margin-bottom: 0px;
 }
 
+a.nav-tabs {
+    border-bottom: 0px;
+}
+
+div.nav.nav-tabs {
+    border: 0px;
+}
+
+li {
+    border-bottom: ridge;
+}
+
 h1 {
     text-shadow: 1px 1px 2px black;
 }
@@ -157,12 +169,4 @@ and (max-width: 380px) {
     input[type=text] {
         font-size: 8px;
     }
-}
-
-a.nav-tabs {
-    border-bottom: 0px;
-}
-
-div.nav.nav-tabs {
-    border: 0px;
 }
