@@ -8,8 +8,8 @@ const Button = (props) => (
                 props.completed ?
                     'hidden' :
                     props.text === 'Postpone' ?
-                        'glyphicon glyphicon-time' :
-                        'glyphicon glyphicon-trash'}
+                        'btn btn-default btn-sm glyphicon glyphicon-time' :
+                        'btn btn-default btn-sm glyphicon glyphicon-trash'}
             onClick={props.onClick}
             disabled={props.completed}
     >

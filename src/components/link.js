@@ -7,11 +7,11 @@ const Link = ({active, children, onClick}) => {
     }
     return (
         <ul id="ul-link"
-            className='nav nav-tabs'
+            className="nav"
         >
             <li>
-                <a
-                    onClick={e => {
+                <a className="nav-tabs"
+                   onClick={e => {
                         e.preventDefault();
                         onClick()
                     }}

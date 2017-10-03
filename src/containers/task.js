@@ -55,7 +55,7 @@ class Task extends Component {
 
     render = () => {
         return (
-            <div className="container">
+            <div>
                 <form onSubmit={(evt) => this.onSubmitHandler(evt)}>
                     <input
                         value={this.state.task}
