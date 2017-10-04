@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 const TaskItem = (props) => (
     <div
-        id='task-item'
         className={
             props.task.completed ?
-                'complete-task' :
-                'none'}
+                'complete-task task-item' :
+                'task-items'}
         onClick={props.onClick}
         disabled={props.completed}
     >

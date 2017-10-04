@@ -47,10 +47,11 @@ class TasksList extends Component {
                                 return (
                                     <div
                                         id="tasks"
-                                        key={Math.random()}
+                                        key={task.id}
                                         className="col-sm-12 col-md-12 col-lg-12"
                                     >
                                         <TaskItem
+                                            key={task.id}
                                             className={task.completed}
                                             task={task}
                                             completed={task.completed}
@@ -63,14 +64,16 @@ class TasksList extends Component {
                                             }}
                                             disabled={task.completed}
                                         />
-                                        <Button text='Delete'
-                                                onClick={() => this.onDeleteHandler(task.id)}
+                                        <Button
+                                            text='Delete'
+                                            onClick={() => this.onDeleteHandler(task.id)}
                                         />
-                                        <Button text='Postpone'
-                                                completed={task.postpone || task.completed}
-                                                className={task.completed}
-                                                onClick={() => this.onPostponeHandler(task.id)}
-                                                disabled={task.completed || task.postpone}
+                                        <Button
+                                            text='Postpone'
+                                            completed={task.postpone || task.completed}
+                                            className={task.completed}
+                                            onClick={() => this.onPostponeHandler(task.id)}
+                                            disabled={task.completed || task.postpone}
                                         />
                                     </div>
                                 )
