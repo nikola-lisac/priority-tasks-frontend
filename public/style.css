@@ -52,7 +52,7 @@ input[type=text]:focus {
     transition: ease-in-out, width .35s ease-in-out;
 }
 
-#tasks:nth-child(odd) {
+.tasks:nth-child(odd) {
     background-color: darkorange;
     box-shadow: 0 8px 6px -6px black inset;
     -webkit-box-shadow: 0 8px 6px -6px black inset;
@@ -60,7 +60,7 @@ input[type=text]:focus {
     padding-right: 0px;
 }
 
-#tasks:nth-child(even) {
+.tasks:nth-child(even) {
     box-shadow: 0 8px 6px -6px black inset;
     -webkit-box-shadow: 0 8px 6px -6px black inset;
     -moz-box-shadow: 0 8px 6px -6px black inset;

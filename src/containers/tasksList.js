@@ -46,12 +46,10 @@ class TasksList extends Component {
                         visibleTasks.map((task) => {
                                 return (
                                     <div
-                                        id="tasks"
-                                        key={Math.random()}
-                                        className="col-sm-12 col-md-12 col-lg-12"
+                                        key={task.id}
+                                        className="col-sm-12 col-md-12 col-lg-12 tasks"
                                     >
                                         <TaskItem
-                                            key={task.id}
                                             className={task.completed}
                                             task={task}
                                             completed={task.completed}
