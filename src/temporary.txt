@@ -1,0 +1,17 @@
+
+- Task which name contains only space characters should not be accepted. trim() can help you
+- taskItem.js, line 6 : each task has same id but it should not be a case, id must be unique.If multiple tags need same
+  style use class instead of id
+- task name and buttons(postpone, delete) are not centered at all, set them in same line
+- div that holds task name is whole clickable, make only task name clickable or create done button
+- if task name is too long e.g. 150 characters(probably it would never happen but...), or if you use app on cell phone(e.g. 350px)
+  it wont be completely visible probably because you use css property - overflow-x: hidden; check out word-break or word-wrap in css
+- Please change orange color
+- Jovica recommended this :
+  http://todomvc.com/examples/react/#/
+  Your  UI has not to looks same but it could inspire you
+
+
+
+
+
