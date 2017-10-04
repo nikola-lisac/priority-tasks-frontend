@@ -6,7 +6,7 @@ const TaskItem = (props) => (
         className={
             props.task.completed ?
                 'complete-task task-item' :
-                'task-items'}
+                'task-item'}
         onClick={props.onClick}
         disabled={props.completed}
     >

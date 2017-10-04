@@ -47,7 +47,7 @@ class TasksList extends Component {
                                 return (
                                     <div
                                         id="tasks"
-                                        key={task.id}
+                                        key={Math.random()}
                                         className="col-sm-12 col-md-12 col-lg-12"
                                     >
                                         <TaskItem
