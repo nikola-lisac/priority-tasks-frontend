@@ -3,7 +3,7 @@
 }
 
 .hidden {
-    visibility: visible;
+    visibility: hidden;
 }
 
 body {
@@ -31,11 +31,6 @@ body {
     font-size: 18px;
 }
 
-#task-list {
-    list-style-type: none;
-    font-size: 25px;
-}
-
 input[type=text] {
     background: transparent;
     border: none;
@@ -53,47 +48,29 @@ input[type=text]:focus {
 }
 
 .tasks:nth-child(odd) {
-    background-color: darkorange;
-    box-shadow: 0 8px 6px -6px black inset;
-    -webkit-box-shadow: 0 8px 6px -6px black inset;
-    -moz-box-shadow: 0 8px 6px -6px black inset;
-    padding-right: 0px;
-}
-
-.tasks:nth-child(even) {
-    box-shadow: 0 8px 6px -6px black inset;
-    -webkit-box-shadow: 0 8px 6px -6px black inset;
-    -moz-box-shadow: 0 8px 6px -6px black inset;
-    padding-right: 0px;
+    background-color: lightgrey;
 }
 
 .right-tabs .nav {
     float: right;
 }
 
-#button {
-    float: right;
-}
-
 .task-item {
-    cursor: pointer;
     text-align: left;
     height: 50px;
     font-size: 12px;
 }
 
-#row {
+.overflow-box {
     overflow: auto;
-    overflow-x: hidden;
-    height: 325px;
+    height: 335px;
     text-align: left;
     border: ridge;
-    border-top: 0px;
     border-bottom: outset;
     margin: 0px;
 }
 
-#ul-link {
+.ul-link {
     position: relative;
     cursor: alias;
     border-style: ridge;
@@ -112,7 +89,7 @@ input[type=text]:focus {
     margin-bottom: 0px;
 }
 
-a.nav-tabs {
+li.nav-tabs {
     border-bottom: 0px;
 }
 
@@ -126,47 +103,4 @@ li {
 
 h1 {
     text-shadow: 1px 1px 2px black;
-}
-
-@media screen
-and (min-width: 800px) {
-    #task-item {
-        font-size: 15px;
-    }
-}
-
-@media screen
-and (max-width: 600px) {
-    .task-item {
-        font-size: 12px;
-        height: 80px;
-    }
-
-    input[type=text] {
-        font-size: 12px;
-    }
-
-    #button {
-        font-size: 10px;
-    }
-}
-
-@media screen
-and (max-width: 450px) {
-    .task-item {
-        font-size: 10px;
-        height: 80px;
-    }
-
-}
-
-@media screen
-and (max-width: 380px) {
-    .task-item {
-        height: 133px;
-    }
-
-    input[type=text] {
-        font-size: 8px;
-    }
 }

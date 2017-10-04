@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {completeTask, getAllTasks, postponeTask, deleteTask, uncompletedTask} from '../actions/task_actions';
+import {completeTask, deleteTask, getAllTasks, postponeTask, uncompletedTask} from '../actions/task_actions';
 import TaskItem from '../components/taskItem';
-import Button from '../components/button';
 
 class TasksList extends Component {
 
@@ -41,43 +40,37 @@ class TasksList extends Component {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
             <div>
-                <div id="row" className="row">
-                    {
-                        visibleTasks.map((task) => {
-                                return (
-                                    <div
-                                        key={task.id}
-                                        className="col-sm-12 col-md-12 col-lg-12 tasks"
-                                    >
-                                        <TaskItem
-                                            className={task.completed}
-                                            task={task}
-                                            completed={task.completed}
-                                            onClick={() => {
-                                                if (!task.completed) {
-                                                    return this.onCompletedHandler(task.id)
-                                                } else {
-                                                    return this.onUncompletedHandler(task.id)
-                                                }
-                                            }}
-                                            disabled={task.completed}
-                                        />
-                                        <Button
-                                            text='Delete'
-                                            onClick={() => this.onDeleteHandler(task.id)}
-                                        />
-                                        <Button
-                                            text='Postpone'
-                                            completed={task.postpone || task.completed}
-                                            className={task.completed}
-                                            onClick={() => this.onPostponeHandler(task.id)}
-                                            disabled={task.completed || task.postpone}
-                                        />
-                                    </div>
+                <div className="row overflow-box">
+                    <div className="col-sm-12 col-md-12 col-lg-12">
+                        <div>
+                            {
+                                visibleTasks.map((task) => {
+                                        return (
+                                            <TaskItem
+                                                key={task.id}
+                                                task={task}
+                                                completed={task.completed}
+                                                postpone={task.postpone}
+                                                onToggleHandler={() => {
+                                                    if (!task.completed) {
+                                                        return this.onCompletedHandler(task.id)
+                                                    } else {
+                                                        return this.onUncompletedHandler(task.id)
+                                                    }
+                                                }}
+                                                onDeleteHandler={() => {
+                                                    return this.onDeleteHandler(task.id)
+                                                }}
+                                                onPostponeHandler={() => {
+                                                    return this.onPostponeHandler(task.id)
+                                                }}
+                                            />
+                                        )
+                                    }
                                 )
                             }
-                        )
-                    }
+                        </div>
+                    </div>
                 </div>
             </div>
         )
