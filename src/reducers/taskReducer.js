@@ -1,9 +1,4 @@
-import {SAVE_TASK} from '../actions/type';
-import {GET_ALL_TASKS} from '../actions/type';
-import {COMPLETE_TASK} from '../actions/type';
-import {UNCOMPLETED_TASK} from "../actions/type";
-import {POSTPONE_TASK} from '../actions/type';
-import {DELETE_TASK} from '../actions/type';
+import {COMPLETE_TASK, DELETE_TASK, GET_ALL_TASKS, POSTPONE_TASK, SAVE_TASK, UNCOMPLETED_TASK} from '../actions/type';
 import moment from 'moment';
 
 const taskReducer = (state = [], action) => {
@@ -81,12 +76,14 @@ const taskReducer = (state = [], action) => {
             return [
                 taskPostpone,
                 ...arrPostponeTask.slice(0, positionPostponeTask),
-                ...arrPostponeTask.slice(positionPostponeTask + 1),
-
+                ...arrPostponeTask.slice(positionPostponeTask + 1)
             ];
 
         case DELETE_TASK :
-            return [action.payload, ...state];
+            return [
+                ...state.slice(0, action.payload),
+                ...state.slice(action.payload + 1)
+            ];
 
         default :
             return state;
