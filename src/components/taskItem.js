@@ -1,22 +1,35 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Button from "./button";
 
 const TaskItem = (props) => (
-    <div
-        id='task-item'
-        className={
-            props.task.completed ?
-                'complete-task' :
-                'none'}
-        onClick={props.onClick}
-        disabled={props.completed}
-    >
-        {props.task.name}
+    <div className='task'>
+        <span className={props.task.completed ?
+            'complete-task' : 'none'}>
+            {props.task.name}
+        </span>
+        <Button
+            text={props.task.completed ?
+                'Incomplete' :
+                'Complete'}
+            className={props.task.completed ?
+                'btn btn-default btn-sm glyphicon glyphicon-remove-circle' :
+                'btn btn-default btn-sm glyphicon glyphicon-ok-circle'}
+            onClick={props.onToggleHandler}
+        />
+        <Button
+            text='Postpone'
+            className={props.task.completed || props.task.postpone ?
+                'hidden' :
+                'btn btn-default btn-sm glyphicon glyphicon-time'}
+            onClick={props.onPostponeHandler}
+        />
+        <Button
+            text='Delete'
+            className='btn btn-default btn-sm glyphicon glyphicon-trash'
+            onClick={props.onDeleteHandler}
+
+        />
     </div>
 );
-
-TaskItem.propTypes = {
-    onClick: PropTypes.func.isRequired
-};
 
 export default TaskItem;

@@ -3,7 +3,7 @@
 }
 
 .hidden {
-    visibility: visible;
+    visibility: hidden;
 }
 
 body {
@@ -16,12 +16,6 @@ body {
     padding: 20px;
 }
 
-.container {
-    position: relative;
-    color: black;
-    text-align: center;
-}
-
 .center {
     position: relative;
     left: 0;
@@ -31,70 +25,47 @@ body {
     font-size: 18px;
 }
 
-#task-list {
-    list-style-type: none;
-    font-size: 25px;
-}
-
 input[type=text] {
+    display: inline-block;
     background: transparent;
     border: none;
     border-bottom: 3px solid #000000;
     box-shadow: 0 8px 6px -6px black;
     padding: 5px;
-    width: 30%;
+    width: 50%;
     font-size: 20px;
     -webkit-transition: width .35s ease-in-out;
 }
 
 input[type=text]:focus {
-    width: 60%;
+    width: 80%;
     transition: ease-in-out, width .35s ease-in-out;
 }
 
-#tasks:nth-child(odd) {
-    background-color: darkorange;
-    box-shadow: 0 8px 6px -6px black inset;
-    -webkit-box-shadow: 0 8px 6px -6px black inset;
-    -moz-box-shadow: 0 8px 6px -6px black inset;
-    padding-right: 0px;
-}
-
-#tasks:nth-child(even) {
-    box-shadow: 0 8px 6px -6px black inset;
-    -webkit-box-shadow: 0 8px 6px -6px black inset;
-    -moz-box-shadow: 0 8px 6px -6px black inset;
-    padding-right: 0px;
+.task:nth-child(odd) {
+    background-color: lightgrey;
 }
 
 .right-tabs .nav {
-    float: right;
+
 }
 
-#button {
-    float: right;
-}
-
-#task-item {
-    cursor: pointer;
+.task-item {
     text-align: left;
     height: 50px;
     font-size: 12px;
 }
 
-#row {
-    overflow: auto;
-    overflow-x: hidden;
-    height: 325px;
-    text-align: left;
+.overflow-box {
+    overflow: scroll;
+    height: 335px;
+    text-align: center;
     border: ridge;
-    border-top: 0px;
     border-bottom: outset;
     margin: 0px;
 }
 
-#ul-link {
-    position: relative;
+.ul-link {
     cursor: alias;
     border-style: ridge;
     border-top-left-radius: 30px 25px;
@@ -112,7 +83,7 @@ input[type=text]:focus {
     margin-bottom: 0px;
 }
 
-a.nav-tabs {
+li.nav-tabs {
     border-bottom: 0px;
 }
 
@@ -126,47 +97,4 @@ li {
 
 h1 {
     text-shadow: 1px 1px 2px black;
-}
-
-@media screen
-and (min-width: 800px) {
-    #task-item {
-        font-size: 15px;
-    }
-}
-
-@media screen
-and (max-width: 600px) {
-    #task-item {
-        font-size: 12px;
-        height: 80px;
-    }
-
-    input[type=text] {
-        font-size: 12px;
-    }
-
-    #button {
-        font-size: 10px;
-    }
-}
-
-@media screen
-and (max-width: 450px) {
-    #task-item {
-        font-size: 10px;
-        height: 80px;
-    }
-
-}
-
-@media screen
-and (max-width: 380px) {
-    #task-item {
-        height: 133px;
-    }
-
-    input[type=text] {
-        font-size: 8px;
-    }
 }
