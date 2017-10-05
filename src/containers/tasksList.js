@@ -40,7 +40,7 @@ class TasksList extends Component {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
             <div className="row">
-                <div className="col-sm-12 col-md-12 col-lg-12">
+                <div className="col-sm-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                     <div className="overflow-box">
                         {
                             visibleTasks.map((task) => {

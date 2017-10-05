@@ -16,12 +16,6 @@ body {
     padding: 20px;
 }
 
-.container {
-    position: relative;
-    color: black;
-    text-align: center;
-}
-
 .center {
     position: relative;
     left: 0;
@@ -52,7 +46,7 @@ input[type=text]:focus {
 }
 
 .right-tabs .nav {
-    float: right;
+
 }
 
 .task-item {
@@ -64,14 +58,13 @@ input[type=text]:focus {
 .overflow-box {
     overflow: scroll;
     height: 335px;
-    text-align: left;
+    text-align: center;
     border: ridge;
     border-bottom: outset;
     margin: 0px;
 }
 
 .ul-link {
-    position: relative;
     cursor: alias;
     border-style: ridge;
     border-top-left-radius: 30px 25px;

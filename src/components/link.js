@@ -6,9 +6,9 @@ const Link = ({active, children, onClick}) => {
         return <span>{children}</span>
     }
     return (
-        <ul className=" nav ul-link">
+        <ul className="nav nav-tabs">
             <li>
-                <a className="nav-tabs"
+                <a
                    onClick={e => {
                        e.preventDefault();
                        onClick()
