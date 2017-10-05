@@ -80,11 +80,18 @@ const taskReducer = (state = [], action) => {
             ];
 
         case DELETE_TASK :
-            return [
-                ...state.slice(0, action.payload),
-                ...state.slice(action.payload + 1)
-            ];
+            let positionDeleteTask = 0;
 
+            let arrNonDeleteTask = state.map((value, index) => {
+                if (value.id === action.payload) {
+                    positionDeleteTask = index;
+                }
+                return value
+            });
+            return [
+                ...arrNonDeleteTask.slice(0, positionDeleteTask),
+                ...arrNonDeleteTask.slice(positionDeleteTask + 1)
+            ];
         default :
             return state;
     }
