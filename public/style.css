@@ -11,11 +11,6 @@ body {
     padding: 20px;
 }
 
-#root {
-    display: inline-block;
-    padding: 20px;
-}
-
 .center {
     position: relative;
     left: 0;
@@ -46,20 +41,13 @@ input[type=text]:focus {
     background-color: lightgrey;
 }
 
-.right-tabs .nav {
-
-}
-
-.task-item {
-    text-align: left;
-    height: 50px;
-    font-size: 12px;
+.task {
+    font-size: 14px;
 }
 
 .overflow-box {
     overflow: scroll;
-    height: 335px;
-    text-align: center;
+    height: 260px;
     border: ridge;
     border-bottom: outset;
     margin: 0px;
@@ -87,14 +75,14 @@ li.nav-tabs {
     border-bottom: 0px;
 }
 
-div.nav.nav-tabs {
-    border: 0px;
-}
-
 li {
     border-bottom: ridge;
 }
 
 h1 {
     text-shadow: 1px 1px 2px black;
+}
+
+p {
+    word-break: keep-all;
 }
