@@ -39,37 +39,35 @@ class TasksList extends Component {
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
-            <div>
-                <div className="row overflow-box">
-                    <div className="col-sm-12 col-md-12 col-lg-12">
-                        <div>
-                            {
-                                visibleTasks.map((task) => {
-                                        return (
-                                            <TaskItem
-                                                key={task.id}
-                                                task={task}
-                                                completed={task.completed}
-                                                postpone={task.postpone}
-                                                onToggleHandler={() => {
-                                                    if (!task.completed) {
-                                                        return this.onCompletedHandler(task.id)
-                                                    } else {
-                                                        return this.onUncompletedHandler(task.id)
-                                                    }
-                                                }}
-                                                onDeleteHandler={() => {
-                                                    return this.onDeleteHandler(task.id)
-                                                }}
-                                                onPostponeHandler={() => {
-                                                    return this.onPostponeHandler(task.id)
-                                                }}
-                                            />
-                                        )
-                                    }
-                                )
-                            }
-                        </div>
+            <div className="row">
+                <div className="col-sm-12 col-md-12 col-lg-12">
+                    <div className="overflow-box">
+                        {
+                            visibleTasks.map((task) => {
+                                    return (
+                                        <TaskItem
+                                            key={task.id}
+                                            task={task}
+                                            completed={task.completed}
+                                            postpone={task.postpone}
+                                            onToggleHandler={() => {
+                                                if (!task.completed) {
+                                                    return this.onCompletedHandler(task.id)
+                                                } else {
+                                                    return this.onUncompletedHandler(task.id)
+                                                }
+                                            }}
+                                            onDeleteHandler={() => {
+                                                return this.onDeleteHandler(task.id)
+                                            }}
+                                            onPostponeHandler={() => {
+                                                return this.onPostponeHandler(task.id)
+                                            }}
+                                        />
+                                    )
+                                }
+                            )
+                        }
                     </div>
                 </div>
             </div>

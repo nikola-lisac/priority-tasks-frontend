@@ -2,7 +2,7 @@ import React from 'react';
 import Button from "./button";
 
 const TaskItem = (props) => (
-    <div>
+    <div className='task'>
         <span className={props.task.completed ?
             'complete-task' : 'none'}>
             {props.task.name}

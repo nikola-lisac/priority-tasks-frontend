@@ -47,7 +47,7 @@ input[type=text]:focus {
     transition: ease-in-out, width .35s ease-in-out;
 }
 
-.tasks:nth-child(odd) {
+.task:nth-child(odd) {
     background-color: lightgrey;
 }
 
@@ -62,7 +62,7 @@ input[type=text]:focus {
 }
 
 .overflow-box {
-    overflow: auto;
+    overflow: scroll;
     height: 335px;
     text-align: left;
     border: ridge;
