@@ -40,7 +40,7 @@ class TasksList extends Component {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
             <div className="row">
-                <div className="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                     <div className="justify-content-center">
                         <div className="overflow-box">
                             {
@@ -53,13 +53,11 @@ class TasksList extends Component {
                                                 task={task}
                                                 completed={task.completed}
                                                 postpone={task.postpone}
-                                                onToggleHandler={() => {
-                                                    if (!task.completed) {
-                                                        return this.onCompletedHandler(task.id)
-                                                    } else {
-                                                        return this.onUncompletedHandler(task.id)
-                                                    }
-                                                }}
+                                                onToggleHandler={
+                                                    (!task.completed) ?
+                                                        () => this.onCompletedHandler(task.id) :
+                                                        () => this.onUncompletedHandler(task.id)
+                                                }
                                                 onDeleteHandler={() => {
                                                     return this.onDeleteHandler(task.id)
                                                 }}

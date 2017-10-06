@@ -2,18 +2,18 @@ import React from 'react';
 import Button from "./button";
 
 const TaskItem = (props) => (
-    <div className="row task">
-        <div className="col-sm-12 d-inline-flex">
-            <div className="col-sm-2 d-flex justify-content-start align-self-center">
-                <span>Task {props.index}:</span>
+    <div className="row align-items-center task">
+        <div className="col col-sm-12 d-inline-flex">
+            <div className="col-xs-2 d-flex justify-content-start align-self-center">
+                <div>No.{props.index}</div>
             </div>
-            <div className="col-sm-7 d-flex justify-content-start">
-                <span className={props.task.completed ?
+            <div className="col-xs-7 offset-sm-0 align-item-start">
+                <div className={props.task.completed ?
                     "complete-task" : "none"}>
                     {props.task.name}
-                </span>
+                </div>
             </div>
-            <div className="col-sm-3 d-flex justify-content-end">
+            <div className="col-xs-3 d-flex justify-content-end">
                 <Button
                     className={props.task.completed ?
                         "btn btn-default btn-sm glyphicon glyphicon-remove-circle" :

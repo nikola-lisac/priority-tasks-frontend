@@ -49,9 +49,10 @@ button.btn.btn-default {
 }
 
 .task {
-    text-align: center;
+    text-align: justify;
     font-size: 16px;
     word-wrap: break-word;
+    word-break: break-all;
 }
 
 .overflow-box {
@@ -72,19 +73,25 @@ button.btn.btn-default {
     box-shadow: 0 8px 6px -6px black inset;
     -webkit-box-shadow: 0 8px 6px -6px black inset;
     -moz-box-shadow: 0 8px 6px -6px black inset;
-    padding-right: 0px;
     margin-bottom: 0px;
+    height: 50px;
 }
 
 a.a-link {
-    border-top-left-radius: 35px 35px !important;
+    border-top-left-radius: 30px 30px !important;
+    box-shadow: 0 8px 6px -6px black inset;
+    -webkit-box-shadow: 0 8px 6px -6px black inset;
+    -moz-box-shadow: 0 8px 6px -6px black inset;
+    margin-bottom: 0px;
+    height: 50px;
 }
 
 h1 {
     text-shadow: 1px 1px 2px black;
 }
 
-@media screen and (max-width: 450px) {
+@media only screen and (max-width: 576px) {
+
     .task {
         font-size: 12px;
     }
@@ -104,4 +111,21 @@ h1 {
     button.btn.btn-default {
         font-size: 10px;
     }
+
+    .ul-link {
+        height: 40px;
+    }
+
+    a.a-link {
+        height: 40px;
+    }
 }
+
+@media only screen and (max-width: 480px) {
+
+    .task {
+        min-width: 350px;
+    }
+}
+
+
