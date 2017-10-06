@@ -2,10 +2,10 @@ import React from 'react';
 import Button from "./button";
 
 const TaskItem = (props) => (
-    <div className="row align-items-center task">
+    <div className="row align-items-center task ">
         <div className="col col-sm-12 d-inline-flex">
             <div className="col-xs-2 d-flex justify-content-start align-self-center">
-                <div>No.{props.index}</div>
+                <h4>{props.index + 1}</h4>
             </div>
             <div className="col-xs-7 offset-sm-0 align-item-start">
                 <div className={props.task.completed ?
@@ -13,7 +13,7 @@ const TaskItem = (props) => (
                     {props.task.name}
                 </div>
             </div>
-            <div className="col-xs-3 d-flex justify-content-end">
+            <div className="col-xs-3 d-flex justify-content-end nopadding">
                 <Button
                     className={props.task.completed ?
                         "btn btn-default btn-sm glyphicon glyphicon-remove-circle" :

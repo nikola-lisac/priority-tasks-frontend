@@ -124,8 +124,15 @@ h1 {
 @media only screen and (max-width: 480px) {
 
     .task {
+        font-size: 10px;
         min-width: 350px;
     }
 }
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 
 
