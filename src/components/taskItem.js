@@ -4,11 +4,14 @@ import Button from "./button";
 const TaskItem = (props) => (
     <div className="row task">
         <div className="col-sm-12 d-inline-flex">
-            <div className="col-sm-9 d-flex justify-content-left">
-                <p className={props.task.completed ?
+            <div className="col-sm-2 d-flex justify-content-start align-self-center">
+                <span>Task {props.index}:</span>
+            </div>
+            <div className="col-sm-7 d-flex justify-content-start">
+                <span className={props.task.completed ?
                     "complete-task" : "none"}>
                     {props.task.name}
-                </p>
+                </span>
             </div>
             <div className="col-sm-3 d-flex justify-content-end">
                 <Button
