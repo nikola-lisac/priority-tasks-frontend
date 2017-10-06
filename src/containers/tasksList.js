@@ -40,13 +40,15 @@ class TasksList extends Component {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
             <div className="row">
-                <div className="col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                <div className="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                     <div className="justify-content-center">
                         <div className="overflow-box">
                             {
-                                visibleTasks.map((task) => {
+                                visibleTasks.map((task, index) => {
                                         return (
+
                                             <TaskItem
+                                                index={index}
                                                 key={task.id}
                                                 task={task}
                                                 completed={task.completed}

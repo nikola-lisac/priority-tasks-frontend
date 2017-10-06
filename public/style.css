@@ -11,28 +11,14 @@ body {
     padding: 20px;
 }
 
-#root {
-    display: inline-block;
-    padding: 20px;
-}
-
-.center {
-    position: relative;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-}
-
 input[type=text] {
-    display: inline-block;
+    position: relative;
     background: transparent;
     border: none;
     border-bottom: 3px solid #000000;
     box-shadow: 0 8px 6px -6px black;
     padding: 5px;
-    width: 50%;
+    width: 40%;
     font-size: 20px;
     -webkit-transition: width .35s ease-in-out;
 }
@@ -44,31 +30,44 @@ input[type=text]:focus {
 
 .task:nth-child(odd) {
     background-color: lightgrey;
+    -webkit-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
 }
 
-.right-tabs .nav {
-
+.task:nth-child(even) {
+    -webkit-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
 }
 
-.task-item {
-    text-align: left;
-    height: 50px;
-    font-size: 12px;
+button.btn.btn-default {
+    -webkit-box-shadow: inset 3px -3px 3px 3px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: inset 3px -3px 3px 3px rgba(0, 0, 0, 0.31);
+    box-shadow: inset 3px -3px 3px 3px rgba(0, 0, 0, 0.31);
+    margin-bottom: 3px;
+}
+
+.task {
+    text-align: center;
+    font-size: 16px;
+    word-wrap: break-word;
 }
 
 .overflow-box {
     overflow: scroll;
-    height: 335px;
-    text-align: center;
+    height: 252px;
     border: ridge;
-    border-bottom: outset;
     margin: 0px;
+    -webkit-box-shadow: 0px 21px 24px 2px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 21px 24px 2px rgba(0, 0, 0, 1);
+    box-shadow: 0px 21px 24px 2px rgba(0, 0, 0, 1);
 }
 
 .ul-link {
+    border-top-left-radius: 35px 35px;
     cursor: alias;
     border-style: ridge;
-    border-top-left-radius: 30px 25px;
     border-bottom: 0px;
     box-shadow: 0 8px 6px -6px black inset;
     -webkit-box-shadow: 0 8px 6px -6px black inset;
@@ -77,24 +76,32 @@ input[type=text]:focus {
     margin-bottom: 0px;
 }
 
-.nav-tabs {
-    border-top-left-radius: 30px 25px;
-    padding-right: 0px;
-    margin-bottom: 0px;
-}
-
-li.nav-tabs {
-    border-bottom: 0px;
-}
-
-div.nav.nav-tabs {
-    border: 0px;
-}
-
-li {
-    border-bottom: ridge;
+a.a-link {
+    border-top-left-radius: 35px 35px !important;
 }
 
 h1 {
     text-shadow: 1px 1px 2px black;
+}
+
+@media screen and (max-width: 450px) {
+    .task {
+        font-size: 12px;
+    }
+
+    input[type=text] {
+        font-size: 12px;
+    }
+
+    a.a-link h4 {
+        font-size: 12px;
+    }
+
+    span h4 {
+        font-size: 12px;
+    }
+
+    button.btn.btn-default {
+        font-size: 10px;
+    }
 }

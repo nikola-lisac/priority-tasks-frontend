@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = (props) => (
-    <span
-        type='button'
+    <button
+        type="button"
         onClick={props.onClick}
         className={props.className}
     >
         {props.text}
-    </span>
+    </button>
 );
 
 Button.propTypes = {

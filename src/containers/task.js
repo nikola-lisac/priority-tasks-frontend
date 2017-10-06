@@ -56,18 +56,22 @@ class Task extends Component {
     render = () => {
         return (
             <div className="row">
-                <div className="col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                <div className="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                     <div>
-                        <form className="d-flex justify-content-center" onSubmit={(evt) => this.onSubmitHandler(evt)}>
-                            <input
-                                value={this.state.task}
-                                type="text"
-                                placeholder="Your next task..."
-                                onChange={(evt) => this.onChangeHandler(evt)}
-                            />
-                            <p
-                                style={{color: "red"}}>{this.state.inputError}
-                            </p>
+                        <form onSubmit={(evt) => this.onSubmitHandler(evt)}>
+                            <div className="d-flex justify-content-center">
+                                <input
+                                    value={this.state.task}
+                                    type="text"
+                                    placeholder="Your next task..."
+                                    onChange={(evt) => this.onChangeHandler(evt)}
+                                />
+                            </div>
+                            <div className="d-flex justify-content-center">
+                                <p
+                                    style={{color: "red"}}>{this.state.inputError}
+                                </p>
+                            </div>
                         </form>
                     </div>
                 </div>
