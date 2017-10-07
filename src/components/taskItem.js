@@ -16,7 +16,7 @@ const TaskItem = (props) => (
             <div className="col-xs-3 d-flex justify-content-end nopadding">
                 <Button
                     className={props.task.completed ?
-                        "btn btn-default btn-sm glyphicon glyphicon-remove-circle" :
+                        "btn btn-default btn-sm glyphicon glyphicon-repeat" :
                         "btn btn-default btn-sm glyphicon glyphicon-ok-circle"}
                     onClick={props.onToggleHandler}
                 />
