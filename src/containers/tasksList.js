@@ -41,35 +41,32 @@ class TasksList extends Component {
         return (
             <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <div className="justify-content-center">
-                        <div className="overflow-box">
-                            {
-                                visibleTasks.map((task, index) => {
-                                        return (
-
-                                            <TaskItem
-                                                index={index}
-                                                key={task.id}
-                                                task={task}
-                                                completed={task.completed}
-                                                postpone={task.postpone}
-                                                onToggleHandler={
-                                                    (!task.completed) ?
-                                                        () => this.onCompletedHandler(task.id) :
-                                                        () => this.onUncompletedHandler(task.id)
-                                                }
-                                                onDeleteHandler={() => {
-                                                    return this.onDeleteHandler(task.id)
-                                                }}
-                                                onPostponeHandler={() => {
-                                                    return this.onPostponeHandler(task.id)
-                                                }}
-                                            />
-                                        )
-                                    }
-                                )
-                            }
-                        </div>
+                    <div className="justify-content-center overflow-box">
+                        {
+                            visibleTasks.map((task, index) => {
+                                    return (
+                                        <TaskItem
+                                            index={index}
+                                            key={task.id}
+                                            task={task}
+                                            completed={task.completed}
+                                            postpone={task.postpone}
+                                            onToggleHandler={
+                                                (!task.completed) ?
+                                                    () => this.onCompletedHandler(task.id) :
+                                                    () => this.onUncompletedHandler(task.id)
+                                            }
+                                            onDeleteHandler={() => {
+                                                return this.onDeleteHandler(task.id)
+                                            }}
+                                            onPostponeHandler={() => {
+                                                return this.onPostponeHandler(task.id)
+                                            }}
+                                        />
+                                    )
+                                }
+                            )
+                        }
                     </div>
                 </div>
             </div>
