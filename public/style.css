@@ -67,6 +67,10 @@ button.btn.btn-default {
     word-break: break-all;
 }
 
+.error-task {
+    text-align: justify;
+}
+
 .overflow-box {
     overflow: scroll;
     height: 252px;
@@ -100,10 +104,10 @@ a.a-link {
 }
 
 .a-link {
-    margin: 0px;
-!important;
-    border: 0px;
-    padding-right: 0px;
+    border-top-left-radius: 30px 30px !important;
+    box-shadow: 0 8px 6px -6px black inset;
+    -webkit-box-shadow: 0 8px 6px -6px black inset;
+    -moz-box-shadow: 0 8px 6px -6px black inset;
 }
 
 li {
@@ -127,6 +131,10 @@ h1 {
         font-size: 12px;
     }
 
+    input[type=text]:focus {
+        font-size: 12px;
+    }
+
     a.a-link h4 {
         font-size: 12px;
     }
@@ -146,6 +154,11 @@ h1 {
     a.a-link {
         height: 40px;
     }
+
+    p {
+        font-size: 10px;
+    !important;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -153,6 +166,10 @@ h1 {
     .tasks {
         font-size: 10px;
         min-width: 350px;
+    }
+
+    .form-control {
+        font-size: 10px;
     }
 }
 

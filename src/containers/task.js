@@ -21,7 +21,7 @@ class Task extends Component {
         };
         if (this.state.task.length > 200) {
             isError = true;
-            errors.inputError = 'Task is too long, 200 characters allowed!'
+            errors.inputError = 'Task is too long, 200 characters allowed !'
         }
         if (this.state.task.trim() === "") {
             isError = true;
@@ -64,10 +64,15 @@ class Task extends Component {
                             <NewTask
                                 className="form-control"
                                 value={this.state.task}
-
+                                placeholder="Your next task..."
                                 onChange={(evt) => this.onChangeHandler(evt)}
                             />
                             <p
+                                className={
+                                    this.state.inputError ?
+                                        "col-xs-12 d-flex justify-content-start align-self-center" :
+                                        "none"
+                                }
                                 style={{color: "red"}}>{this.state.inputError}
                             </p>
                         </form>
