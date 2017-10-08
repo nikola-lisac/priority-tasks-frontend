@@ -3,6 +3,7 @@ import TasksList from '../containers/tasksList';
 import Task from '../containers/task';
 import Tabs from '../components/tabs';
 import Title from '../components/title';
+import Footer from '../components/footer';
 
 class App extends Component {
     render() {
@@ -12,6 +13,7 @@ class App extends Component {
                 <Tabs/>
                 <Task/>
                 <TasksList/>
+                <Footer/>
             </div>
         );
     }
