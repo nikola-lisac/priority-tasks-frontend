@@ -9,8 +9,8 @@ class App extends Component {
         return (
             <div className="container">
                 <Title/>
-                <Task/>
                 <Tabs/>
+                <Task/>
                 <TasksList/>
             </div>
         );

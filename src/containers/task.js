@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {saveTask} from '../actions/task_actions.js';
 import {setVisibilityFilter} from "../actions/filter_actions";
+import NewTask from "../components/newTask";
 
 class Task extends Component {
 
@@ -58,11 +59,12 @@ class Task extends Component {
             <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                     <div>
-                        <form onSubmit={(evt) => this.onSubmitHandler(evt)} className="d-flex justify-content-center">
-                            <input
+                        <form onSubmit={(evt) => this.onSubmitHandler(evt)}
+                              className="d-flex justify-content-center new-task">
+                            <NewTask
+                                className="form-control"
                                 value={this.state.task}
-                                type="text"
-                                placeholder="Your next task..."
+
                                 onChange={(evt) => this.onChangeHandler(evt)}
                             />
                             <p
