@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './button';
 
 const TaskItem = (props) => (
-    <div className="row align-items-center tasks ">
+    <div className="row align-items-center tasks">
         <div className="col col-sm-12 d-inline-flex">
             <div className="col-xs-2 d-flex justify-content-start align-self-center">
                 <h4>{props.index + 1}</h4>
