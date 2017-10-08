@@ -60,7 +60,7 @@ class Task extends Component {
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
                     <div>
                         <form onSubmit={(evt) => this.onSubmitHandler(evt)}
-                              className="d-flex justify-content-center new-task">
+                              className="d-flex justify-content-center">
                             <NewTask
                                 className="form-control"
                                 value={this.state.task}
@@ -70,15 +70,15 @@ class Task extends Component {
                             <p
                                 className={
                                     this.state.inputError ?
-                                        "col-xs-12 d-flex justify-content-start align-self-center" :
+                                        "col-xs-12  d-flex justify-content-start align-self-center" :
                                         "none"
                                 }
                                 style={{color: "red"}}>{this.state.inputError}
                             </p>
                         </form>
                     </div>
+                    </div>
                 </div>
-            </div>
         )
     };
 }
