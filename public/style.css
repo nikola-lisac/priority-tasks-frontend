@@ -41,6 +41,7 @@ input.form-control {
 .new-task {
     box-shadow: 0 8px 6px -6px black;
     border-top: none;
+    height: 38px;
 }
 
 .tasks:nth-child(odd) {
@@ -91,7 +92,7 @@ button.btn.btn-default {
     -webkit-box-shadow: 0 8px 6px -6px black inset;
     -moz-box-shadow: 0 8px 6px -6px black inset;
     margin-bottom: 0px;
-    height: 50px;
+    height: 38px;
 }
 
 a.a-link {
@@ -103,7 +104,7 @@ a.a-link {
 !important;
     border: 0px;
     padding-right: 0px;
-    height: 50px;
+    height: 38px;
 }
 
 .a-link {
@@ -178,7 +179,6 @@ h3 {
     input[type=text] {
         width: 50%;
     }
-
 }
 
 .panel {
@@ -186,3 +186,22 @@ h3 {
     padding-left: 15px;
 }
 
+.panel.footer-info {
+    text-align: left;
+    font-size: 10px;
+    -webkit-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+}
+
+.panel.footer-tasks {
+    font-size: 10px;
+    -webkit-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
