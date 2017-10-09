@@ -180,10 +180,11 @@ h3 {
         width: 50%;
     }
 
-    .panel.footer-tasks {
-        font-size: 10px;
+    p {
+        font-size: 8px;
     !important;
     }
+
 }
 
 .panel {
