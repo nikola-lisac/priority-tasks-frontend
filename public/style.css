@@ -120,7 +120,7 @@ li {
     padding-right: 0px;
 }
 
-h1 {
+h3 {
     text-shadow: 1px 1px 2px black;
 }
 
@@ -182,7 +182,7 @@ h1 {
 }
 
 .panel {
-    height: 39px;
+    height: 40px;
     padding-left: 15px;
 }
 
