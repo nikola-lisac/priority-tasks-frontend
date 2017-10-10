@@ -87,6 +87,8 @@ button.btn.btn-default {
     height: 252px;
     border-radius: 8px;
     border: ridge;
+    border-top: none;
+    border-left: none;
     margin: 0px;
     -webkit-box-shadow: 0px 50px 39px 15px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 50px 39px 15px rgba(0, 0, 0, 0.75);
@@ -213,7 +215,16 @@ h3 {
     box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
 }
 
-.panel.footer-tasks {
+.panel.footer-tasks-completed {
+    font-size: 12px;
+    border-radius: 8px;
+    margin: 0px;
+    -webkit-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+    box-shadow: inset 0px -3px 3px 2px rgba(0, 0, 0, 0.31);
+}
+
+.panel.footer-tasks-uncompleted {
     font-size: 12px;
     border-radius: 8px;
     margin: 0px;
