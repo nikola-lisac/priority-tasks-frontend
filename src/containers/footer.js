@@ -32,17 +32,14 @@ class Footer extends Component {
         return (
             <div className="row align-items-center">
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 d-inline-flex">
-                    <div className="col-xs-6 d-flex align-items-center align-self-justify panel footer-info">
-                        <p>{this.props.filter}: {currentDate}</p>
+                    <div className="col-xs-6 d-flex justify-content-center panel footer-info">
+                        <p className="align-self-center">{this.props.filter}: {currentDate}</p>
                     </div>
-                    <div className="col-xs-6 d-flex align-items-center align-self-justify panel footer-tasks">
-                        <p>
-                            {visibleUncompletedTasks.length}
-                            {numberOfTasks > 1 ?
-                                " tasks left" :
-                                numberOfTasks === 0 ?
-                                    " no more tasks...Congratulations!" :
-                                    " task left"
+                    <div className="col-xs-6 d-flex justify-content-center panel footer-tasks">
+                        <p className="align-self-center">
+                            {numberOfTasks !== 0 ? visibleUncompletedTasks.length : ''}
+                            {numberOfTasks === 0 ? "No more tasks...Congratulations!" :
+                                numberOfTasks === 1 ? " task left" : " tasks left"
                             }
                         </p>
                     </div>

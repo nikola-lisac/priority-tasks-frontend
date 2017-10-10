@@ -56,9 +56,9 @@ class Task extends Component {
 
     render = () => {
         return (
-            <div className="row">
+            <div className="row align-items-center">
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <div>
+                    <div className="justify-content-center">
                         <form onSubmit={(evt) => this.onSubmitHandler(evt)}
                               className="d-flex justify-content-center">
                             <NewTask
