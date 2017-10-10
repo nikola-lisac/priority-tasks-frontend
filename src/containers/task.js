@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {saveTask} from '../actions/task_actions.js';
 import {setVisibilityFilter} from "../actions/filter_actions";
+import NewTask from "../components/newTask";
 
 class Task extends Component {
 
@@ -20,7 +21,7 @@ class Task extends Component {
         };
         if (this.state.task.length > 200) {
             isError = true;
-            errors.inputError = 'Task is too long, 200 characters allowed!'
+            errors.inputError = 'Task is too long, 200 characters allowed !'
         }
         if (this.state.task.trim() === "") {
             isError = true;
@@ -55,27 +56,29 @@ class Task extends Component {
 
     render = () => {
         return (
-            <div className="row">
-                <div className="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <div>
-                        <form onSubmit={(evt) => this.onSubmitHandler(evt)}>
-                            <div className="d-flex justify-content-center">
-                                <input
-                                    value={this.state.task}
-                                    type="text"
-                                    placeholder="Your next task..."
-                                    onChange={(evt) => this.onChangeHandler(evt)}
-                                />
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <p
-                                    style={{color: "red"}}>{this.state.inputError}
-                                </p>
-                            </div>
+            <div className="row align-items-center">
+                <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                    <div className="justify-content-center">
+                        <form onSubmit={(evt) => this.onSubmitHandler(evt)}
+                              className="d-flex justify-content-center">
+                            <NewTask
+                                className="form-control"
+                                value={this.state.task}
+                                placeholder="Your next task..."
+                                onChange={(evt) => this.onChangeHandler(evt)}
+                            />
+                            <p
+                                className={
+                                    this.state.inputError ?
+                                        "col-xs-12  d-flex justify-content-start align-self-center" :
+                                        "none"
+                                }
+                                style={{color: "red"}}>{this.state.inputError}
+                            </p>
                         </form>
                     </div>
+                    </div>
                 </div>
-            </div>
         )
     };
 }

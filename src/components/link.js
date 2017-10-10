@@ -6,14 +6,15 @@ const Link = ({active, children, onClick}) => {
         return <span>{children}</span>
     }
     return (
-        <ul className="nav nav-tabs ul-link">
+        <ul className="nav ul-link">
             <li>
-                <a className="a-link"
-                   href={active}
-                   onClick={e => {
-                       e.preventDefault();
-                       onClick()
-                   }}
+                <a
+                    className="nav-tabs a-link"
+                    href={active}
+                    onClick={e => {
+                        e.preventDefault();
+                        onClick()
+                    }}
                 >
                     {children}
                 </a>
