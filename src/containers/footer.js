@@ -27,7 +27,7 @@ class Footer extends Component {
     };
     render = () => {
         let visibleUncompletedTasks = this.getVisibleUncompletedTasks(this.props.tasks, this.props.filter);
-        let numberOfTasks = visibleUncompletedTasks.length;
+        let numberOfUncompletedTasks = visibleUncompletedTasks.length;
         let currentDate = this.getCurrentDate(this.props.filter);
         return (
             <div className="row align-items-center">
@@ -37,9 +37,9 @@ class Footer extends Component {
                     </div>
                     <div className="col-xs-6 d-flex justify-content-center panel footer-tasks">
                         <p className="align-self-center">
-                            {numberOfTasks !== 0 ? visibleUncompletedTasks.length : ''}
-                            {numberOfTasks === 0 ? "No more tasks...Congratulations!" :
-                                numberOfTasks === 1 ? " task left" : " tasks left"
+                            {numberOfUncompletedTasks !== 0 ? visibleUncompletedTasks.length : ''}
+                            {numberOfUncompletedTasks === 0 ? "No more tasks...Congratulations!" :
+                                numberOfUncompletedTasks === 1 ? " task left" : " tasks left"
                             }
                         </p>
                     </div>
