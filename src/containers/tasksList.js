@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {completeTask, deleteTask, getAllTasks, postponeTask, uncompletedTask} from '../actions/task_actions';
-import TaskItem from '../components/taskItem';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {completeTask, deleteTask, getAllTasks, postponeTask, uncompletedTask} from "../actions/task_actions";
+import TaskItem from "../components/taskItem";
 
 class TasksList extends Component {
 
@@ -27,12 +27,12 @@ class TasksList extends Component {
 
     getVisibleTasks = (tasks, filter) => {
         switch (filter) {
-            case 'TODAY':
+            case "TODAY":
                 return tasks.filter(task => !task.postpone);
-            case 'TOMORROW':
+            case "TOMORROW":
                 return tasks.filter(task => task.postpone);
             default:
-                throw new Error('Unknown filter: ' + filter)
+                throw new Error("Unknown filter: " + filter)
         }
     };
 
@@ -91,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TasksList)
+export default connect(mapStateToProps, mapDispatchToProps)(TasksList);

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {saveTask} from '../actions/task_actions.js';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {saveTask} from "../actions/task_actions.js";
 import {setVisibilityFilter} from "../actions/filter_actions";
 import NewTask from "../components/newTask";
 
@@ -9,23 +9,23 @@ class Task extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            task: '',
-            inputError: ''
+            task: "",
+            inputError: ""
         };
     };
 
     validateInputField = () => {
         let isError = false;
         const errors = {
-            inputError: ''
+            inputError: ""
         };
         if (this.state.task.length > 200) {
             isError = true;
-            errors.inputError = 'Task is too long, 200 characters allowed !'
+            errors.inputError = "Task is too long, 200 characters allowed !"
         }
         if (this.state.task.trim() === "") {
             isError = true;
-            errors.inputError = 'Please enter a task';
+            errors.inputError = "Please enter a task";
         }
         if (isError) {
             this.setState(errors);
@@ -36,19 +36,19 @@ class Task extends Component {
     onChangeHandler = (evt) => {
         this.setState({
             task: evt.target.value,
-            inputError: ''
+            inputError: ""
         })
     };
 
     onSubmitHandler = (evt) => {
         evt.preventDefault();
         const error = this.validateInputField();
-        const filter = 'TODAY';
+        const filter = "TODAY";
         if (!error) {
             this.props.saveTask(this.state.task);
             this.setState({
-                task: '',
-                inputError: ''
+                task: "",
+                inputError: ""
             });
             this.props.setVisibilityFilter(filter);
         }

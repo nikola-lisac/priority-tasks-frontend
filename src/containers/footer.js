@@ -1,28 +1,28 @@
-import React, {Component} from 'react';
-import moment from 'moment';
-import {connect} from 'react-redux';
+import React, {Component} from "react";
+import moment from "moment";
+import {connect} from "react-redux";
 
 
 class Footer extends Component {
 
     getVisibleUncompletedTasks = (tasks, filter) => {
         switch (filter) {
-            case 'TODAY':
+            case "TODAY":
                 return tasks.filter(task => !task.postpone && !task.completed);
-            case 'TOMORROW':
+            case "TOMORROW":
                 return tasks.filter(task => task.postpone && !task.completed);
             default:
-                throw new Error('Unknown filter: ' + filter)
+                throw new Error("Unknown filter: " + filter)
         }
     };
     getCurrentDate = filter => {
         switch (filter) {
-            case 'TODAY':
-                return moment(new Date()).format('[ ]dddd[,] MMMM Do Y[.]');
-            case 'TOMORROW':
-                return moment().add(1, 'days').format('[ ]dddd[,] MMMM Do Y[.]');
+            case "TODAY":
+                return moment(new Date()).format("[ ]dddd[,] MMMM Do Y[.]");
+            case "TOMORROW":
+                return moment().add(1, "days").format("[ ]dddd[,] MMMM Do Y[.]");
             default:
-                throw new Error('Unknown filter: ' + filter)
+                throw new Error("Unknown filter: " + filter)
         }
     };
     render = () => {
@@ -37,7 +37,7 @@ class Footer extends Component {
                     </div>
                     <div className="col-xs-6 d-flex justify-content-center panel footer-tasks">
                         <p className="align-self-center">
-                            {numberOfUncompletedTasks !== 0 ? visibleUncompletedTasks.length : ''}
+                            {numberOfUncompletedTasks !== 0 ? visibleUncompletedTasks.length : ""}
                             {numberOfUncompletedTasks === 0 ? "No more tasks...Congratulations!" :
                                 numberOfUncompletedTasks === 1 ? " task left" : " tasks left"
                             }
@@ -56,5 +56,5 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Footer)
+export default connect(mapStateToProps)(Footer);
 

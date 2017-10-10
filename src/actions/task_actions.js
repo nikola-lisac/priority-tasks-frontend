@@ -1,17 +1,12 @@
-import {SAVE_TASK} from './type';
-import {GET_ALL_TASKS} from './type';
-import {COMPLETE_TASK} from './type';
-import {UNCOMPLETED_TASK} from "./type";
-import {POSTPONE_TASK} from './type';
-import {DELETE_TASK} from "./type";
-import axios from 'axios';
-import moment from 'moment';
+import {COMPLETE_TASK, DELETE_TASK, GET_ALL_TASKS, POSTPONE_TASK, SAVE_TASK, UNCOMPLETED_TASK} from "./type";
+import axios from "axios";
+import moment from "moment";
 
 export const saveTask = inputsValue => {
-    const url = 'http://localhost:8080/tasks';
+    const url = "http://localhost:8080/tasks";
     let task = {
         name: inputsValue,
-        createdAt: moment().format('YYYY-MM-DD'),
+        createdAt: moment().format("YYYY-MM-DD"),
         completed: false
     };
 
@@ -28,7 +23,7 @@ export const saveTask = inputsValue => {
 };
 
 export const getAllTasks = () => {
-    const urlGet = 'http://localhost:8080/tasks';
+    const urlGet = "http://localhost:8080/tasks";
     return (dispatch) => {
         return axios.get(urlGet).then(response => {
             dispatch({
@@ -42,7 +37,7 @@ export const getAllTasks = () => {
 };
 
 export const completeTask = id => {
-    const url = 'http://localhost:8080/tasks/' + id;
+    const url = "http://localhost:8080/tasks/" + id;
     return (dispatch) => {
         return axios.put(url).then(response => {
             dispatch({
@@ -56,8 +51,8 @@ export const completeTask = id => {
 };
 
 export const uncompletedTask = id => {
-    const url = 'http://localhost:8080/task/' + id;
-    const urlGet = 'http://localhost:8080/tasks';
+    const url = "http://localhost:8080/task/" + id;
+    const urlGet = "http://localhost:8080/tasks";
     return (dispatch) => {
         axios.post(url).then(response => {
             dispatch({
@@ -77,8 +72,8 @@ export const uncompletedTask = id => {
 };
 
 export const postponeTask = id => {
-    const url = 'http://localhost:8080/tasks/' + id;
-    const urlGet = 'http://localhost:8080/tasks';
+    const url = "http://localhost:8080/tasks/" + id;
+    const urlGet = "http://localhost:8080/tasks";
     return (dispatch) => {
         axios.post(url).then(response => {
             dispatch({
@@ -98,8 +93,8 @@ export const postponeTask = id => {
 };
 
 export const deleteTask = id => {
-    const url = 'http://localhost:8080/task/' + id;
-    const urlGet = 'http://localhost:8080/tasks';
+    const url = "http://localhost:8080/task/" + id;
+    const urlGet = "http://localhost:8080/tasks";
     return (dispatch) => {
         axios.delete(url).then(response => {
             dispatch({

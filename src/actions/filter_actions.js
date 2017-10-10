@@ -1,4 +1,4 @@
-import {SET_VISIBILITY_FILTER} from './type';
+import {SET_VISIBILITY_FILTER} from "./type";
 
 export const setVisibilityFilter = filter => {
     return (dispatch) => {

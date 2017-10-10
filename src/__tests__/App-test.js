@@ -1,10 +1,10 @@
-import React from 'react';
-import {shallow, render} from 'enzyme';
+import React from "react";
+import {render, shallow} from "enzyme";
 
-import App from '../components/App';
+import App from "../components/App";
 
-describe('<App/>', function () {
-    it('contains simple div', function () {
+describe("<App/>", function () {
+    it("contains simple div", function () {
         expect(shallow(<App/>).contains(
             <div>
                 <h1>Priority Tasks</h1>
@@ -12,8 +12,8 @@ describe('<App/>', function () {
         )).toBe(true);
     });
 
-    it('should render to static HTML', function () {
-        expect(render(<App />).text()).toEqual('Priority Tasks');
+    it("should render to static HTML", function () {
+        expect(render(<App/>).text()).toEqual("Priority Tasks");
     });
 
 });

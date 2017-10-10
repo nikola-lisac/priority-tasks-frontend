@@ -1,5 +1,5 @@
-import {COMPLETE_TASK, DELETE_TASK, GET_ALL_TASKS, POSTPONE_TASK, SAVE_TASK, UNCOMPLETED_TASK} from '../actions/type';
-import moment from 'moment';
+import {COMPLETE_TASK, DELETE_TASK, GET_ALL_TASKS, POSTPONE_TASK, SAVE_TASK, UNCOMPLETED_TASK} from "../actions/type";
+import moment from "moment";
 
 const taskReducer = (state = [], action) => {
     switch (action.type) {
@@ -9,7 +9,7 @@ const taskReducer = (state = [], action) => {
 
         case GET_ALL_TASKS :
             let arrGet = action.payload.map((value) => {
-                if (value.createdAt > moment().format('YYYY-MM-DD')) {
+                if (value.createdAt > moment().format("YYYY-MM-DD")) {
                     value = {...value, postpone: true};
                     return value;
                 }
