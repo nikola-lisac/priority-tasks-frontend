@@ -55,7 +55,7 @@ class Footer extends Component {
                             {numberOfUncompletedTasks !== 0 ? visibleUncompletedTasks.length : ""}
                             {numberOfUncompletedTasks === 0 && numberOfCompletedTasks === 0 ? "" :
                                 numberOfUncompletedTasks === 0 ? "No more... Congratulations !" :
-                                numberOfUncompletedTasks === 1 ? " task left" : " tasks left"
+                                    numberOfUncompletedTasks === 1 ? " task left" : " tasks left"
                             }
                         </p>
                     </div>
