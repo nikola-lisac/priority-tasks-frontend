@@ -78,10 +78,6 @@ class TasksList extends Component {
                                             toggleModal={() => {
                                                 return this.onToggleModal(task.id)
                                             }}
-                                            isOpen={this.state.showModal}
-                                            onRequestClose={() => {
-                                                this.onToggleModal.bind(this)
-                                            }}
                                         />
                                     )
                                 }
@@ -96,7 +92,7 @@ class TasksList extends Component {
                 >
                     {visibleTasks.map(task => {
                         if (task.id === this.state.id) {
-                            return task.name;
+                            return task.name
                         } else return null;
                     })}
                     <button onClick={this.onToggleModal}>Close</button>
