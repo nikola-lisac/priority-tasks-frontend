@@ -63,7 +63,7 @@ class Footer extends Component {
                         <p className="align-self-center">
                             {numberOfCompletedTasks !== 0 ? visibleCompletedTasks.length : ""}
                             {numberOfCompletedTasks === 0 && numberOfUncompletedTasks === 0 ? "" :
-                                numberOfCompletedTasks === 0 ? "Sorry, let's done at least one !" :
+                                numberOfCompletedTasks === 0 ? "Sorry, let's do at least one !" :
                                     numberOfCompletedTasks === 1 ? " task done" : " tasks done"
                             }
                         </p>

@@ -2,8 +2,14 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {completeTask, deleteTask, getAllTasks, postponeTask, uncompletedTask} from "../actions/task_actions";
 import TaskItem from "../components/taskItem";
+import Modal from "react-modal";
 
 class TasksList extends Component {
+
+    state = {
+        showModal: false,
+        id: null
+    };
 
     componentDidMount = () => {
         this.props.getAllTasks();
@@ -36,6 +42,13 @@ class TasksList extends Component {
         }
     };
 
+    onToggleModal = (id) => {
+        this.setState({
+            showModal: !this.state.showModal,
+            id: id
+        })
+    };
+
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         return (
@@ -62,6 +75,13 @@ class TasksList extends Component {
                                             onPostponeHandler={() => {
                                                 return this.onPostponeHandler(task.id)
                                             }}
+                                            toggleModal={() => {
+                                                return this.onToggleModal(task.id)
+                                            }}
+                                            isOpen={this.state.showModal}
+                                            onRequestClose={() => {
+                                                this.onToggleModal.bind(this)
+                                            }}
                                         />
                                     )
                                 }
@@ -69,6 +89,18 @@ class TasksList extends Component {
                         }
                     </div>
                 </div>
+                <Modal
+                    isOpen={this.state.showModal}
+                    onRequestClose={this.onToggleModal}
+
+                >
+                    {visibleTasks.map(task => {
+                        if (task.id === this.state.id) {
+                            return task.name;
+                        } else return null;
+                    })}
+                    <button onClick={this.onToggleModal}>Close</button>
+                </Modal>
             </div>
         )
     }

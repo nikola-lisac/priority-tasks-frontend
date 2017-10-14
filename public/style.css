@@ -237,3 +237,11 @@ h3 {
     padding: 0 !important;
     margin: 0 !important;
 }
+
+.modal {
+    position: fixed;
+    border: 1px solid;
+    overflow: auto;
+    border-radius: 8px;
+    display: block;
+}

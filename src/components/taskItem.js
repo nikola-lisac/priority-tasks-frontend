@@ -8,9 +8,8 @@ const TaskItem = (props) => (
                 <h4>{props.index + 1}</h4>
             </div>
             <div className="col-xs-7 offset-sm-0 align-item-start">
-                <div className={props.task.completed ?
-                    "complete-task" : "none"}>
-                    {props.task.name}
+                <div className={props.task.completed ? "complete-task" : "none"}>
+                    <a onClick={props.toggleModal}>{props.task.name}</a>
                 </div>
             </div>
             <div className="col-xs-3 d-flex justify-content-end nopadding">
