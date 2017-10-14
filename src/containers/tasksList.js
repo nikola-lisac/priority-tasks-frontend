@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {completeTask, deleteTask, getAllTasks, postponeTask, uncompletedTask} from "../actions/task_actions";
 import TaskItem from "../components/taskItem";
-import Modal from "react-modal";
+import moment from "moment";
+import {Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle} from "react-modal-bootstrap";
 
 class TasksList extends Component {
 
@@ -45,12 +46,18 @@ class TasksList extends Component {
     onToggleModal = (id) => {
         this.setState({
             showModal: !this.state.showModal,
-            id: id
+            id
         })
     };
 
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
+        let taskCreatedAt = visibleTasks.map(task => {
+            if (task.id === this.state.id) {
+                return moment(task.createdAt).format("[ ]dddd[,] MMMM Do Y[.]");
+            }
+            return null;
+        })
         return (
             <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -88,14 +95,23 @@ class TasksList extends Component {
                 <Modal
                     isOpen={this.state.showModal}
                     onRequestClose={this.onToggleModal}
-
                 >
-                    {visibleTasks.map(task => {
-                        if (task.id === this.state.id) {
-                            return task.name
-                        } else return null;
-                    })}
-                    <button onClick={this.onToggleModal}>Close</button>
+                    <ModalHeader>
+                        <ModalTitle>Task details</ModalTitle>
+                    </ModalHeader>
+                    <ModalBody>
+                        <div>
+                            Created for: {taskCreatedAt}
+                        </div>
+                    </ModalBody>
+                    <ModalFooter>
+                        <button className="btn btn-primary" onClick={this.onToggleModal}>
+                            Close
+                        </button>
+                        <button className="btn btn-primary">
+                            Start estimate
+                        </button>
+                    </ModalFooter>
                 </Modal>
             </div>
         )

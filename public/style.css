@@ -238,10 +238,24 @@ h3 {
     margin: 0 !important;
 }
 
-.modal {
-    position: fixed;
-    border: 1px solid;
-    overflow: auto;
-    border-radius: 8px;
-    display: block;
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
+.modal-dialog {
+    display: flex;
+    flex-direction: inherit;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 600px;
+
+}
+
+.modal-content {
+    width: 100%;
+}
+
+.task-name {
+    cursor: pointer;
 }
