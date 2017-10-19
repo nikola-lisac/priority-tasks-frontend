@@ -4,8 +4,6 @@ import Task from "../containers/task";
 import Tabs from "../components/tabs";
 import Title from "../components/title";
 import Footer from "../containers/footer";
-import ModalRoot from "../containers/modalRoot";
-
 
 class App extends Component {
     render() {
@@ -16,7 +14,6 @@ class App extends Component {
                 <Task/>
                 <TasksList/>
                 <Footer/>
-                <ModalRoot/>
             </div>
         );
     }

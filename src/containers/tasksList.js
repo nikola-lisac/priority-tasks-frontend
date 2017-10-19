@@ -4,12 +4,15 @@ import {completeTask, deleteTask, getAllTasks, postponeTask, uncompletedTask} fr
 import TaskItem from "../components/taskItem";
 import moment from "moment";
 import {Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle} from "react-modal-bootstrap";
+import TimeKeeper from "react-timekeeper";
+
 
 class TasksList extends Component {
 
     state = {
         showModal: false,
-        id: null
+        id: null,
+        estimated: false
     };
 
     componentDidMount = () => {
@@ -43,21 +46,50 @@ class TasksList extends Component {
         }
     };
 
-    onToggleModal = (id) => {
+    openModal = (id) => {
         this.setState({
-            showModal: !this.state.showModal,
+            showModal: true,
             id
+        })
+    };
+
+    closeModal = () => {
+        this.setState({
+            showModal: false
+        });
+    };
+
+    newModal = () => {
+        this.setState({
+            estimatedTask: null,
+            estimated: false
+        });
+    };
+
+    setEstimate = () => {
+        this.setState({
+            estimatedTask: this.state.id,
+            showModal: false,
+            estimated: true
         })
     };
 
     render = () => {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
-        let taskCreatedAt = visibleTasks.map(task => {
-            if (task.id === this.state.id) {
-                return moment(task.createdAt).format("[ ]dddd[,] MMMM Do Y[.]");
+        let estimatedTask = this.props.tasks.map(task => {
+            if (task.id === this.state.estimatedTask) {
+                return task.name.concat(" ")
             }
             return null;
-        })
+        });
+
+        let taskName = visibleTasks.map(task => {
+            if (task.id === this.state.id) {
+                return task.name
+            }
+            return null;
+        });
+
         return (
             <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
@@ -82,8 +114,8 @@ class TasksList extends Component {
                                             onPostponeHandler={() => {
                                                 return this.onPostponeHandler(task.id)
                                             }}
-                                            toggleModal={() => {
-                                                return this.onToggleModal(task.id)
+                                            openModal={() => {
+                                                if (!task.completed) this.openModal(task.id)
                                             }}
                                         />
                                     )
@@ -94,22 +126,32 @@ class TasksList extends Component {
                 </div>
                 <Modal
                     isOpen={this.state.showModal}
-                    onRequestClose={this.onToggleModal}
+                    onRequestClose={this.closeModal}
+                    onAfterOpen={this.afterOpenModal}
                 >
                     <ModalHeader>
-                        <ModalTitle>Task details</ModalTitle>
+                        <ModalTitle>
+                            <p>Selected task is: {taskName}</p>
+                            <p>Estimated task: {estimatedTask}</p>
+                        </ModalTitle>
                     </ModalHeader>
                     <ModalBody>
                         <div>
-                            Created for: {taskCreatedAt}
+                            <TimeKeeper/>
+                        </div>
+                        <div>
+                            Time now is: {moment().format("hh: mm a")}
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <button className="btn btn-primary" onClick={this.onToggleModal}>
-                            Close
+                        <button className="btn btn-primary" onClick={this.setEstimate} disabled={this.state.estimated}>
+                            Set estimate
                         </button>
-                        <button className="btn btn-primary">
-                            Start estimate
+                        <button className="btn btn-primary" onClick={this.newModal}>
+                            Start new estimate
+                        </button>
+                        <button className="btn btn-primary" onClick={this.closeModal}>
+                            Close
                         </button>
                     </ModalFooter>
                 </Modal>
