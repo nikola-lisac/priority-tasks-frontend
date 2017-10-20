@@ -170,6 +170,10 @@ h3 {
         visibility: visible;
     !important;
     }
+
+    button.btn.btn-primary {
+        font-size: 10px;
+    }
 }
 
 .panel {
