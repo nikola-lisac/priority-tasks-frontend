@@ -4,11 +4,13 @@ import filterReducer from "./reducers/filterReducer";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
+const reducers = combineReducers({
+    taskReducer,
+    filterReducer
+});
+
 const store = createStore(
-    combineReducers({
-        taskReducer,
-        filterReducer
-    }),
+    reducers,
     applyMiddleware(
         logger(),
         thunk
