@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import TasksList from "../containers/tasksList";
 import Task from "../containers/task";
-import Tabs from "../components/tabs";
 import Title from "../components/title";
 import Footer from "../containers/footer";
 
@@ -10,7 +9,6 @@ class App extends Component {
         return (
             <div className="container">
                 <Title/>
-                <Tabs/>
                 <Task/>
                 <TasksList/>
                 <Footer/>

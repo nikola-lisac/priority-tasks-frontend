@@ -69,7 +69,6 @@ class TasksList extends Component {
     setEstimate = () => {
         this.setState({
             estimatedTask: this.state.id,
-            showModal: false,
             estimated: true
         })
     };
@@ -78,14 +77,14 @@ class TasksList extends Component {
         let visibleTasks = this.getVisibleTasks(this.props.tasks, this.props.filter);
         let estimatedTask = this.props.tasks.map(task => {
             if (task.id === this.state.estimatedTask) {
-                return task.name.concat(" ")
+                return task.name;
             }
             return null;
         });
 
         let taskName = visibleTasks.map(task => {
             if (task.id === this.state.id) {
-                return task.name
+                return task.name;
             }
             return null;
         });
@@ -131,16 +130,16 @@ class TasksList extends Component {
                 >
                     <ModalHeader>
                         <ModalTitle>
-                            <p>Selected task is: {taskName}</p>
+                            <p>Selected task: {taskName}</p>
                             <p>Estimated task: {estimatedTask}</p>
                         </ModalTitle>
                     </ModalHeader>
                     <ModalBody>
                         <div>
-                            <TimeKeeper/>
+                            <h4>Time now is: {moment().format("hh: mm a")}</h4>
                         </div>
                         <div>
-                            Time now is: {moment().format("hh: mm a")}
+                            <TimeKeeper/>
                         </div>
                     </ModalBody>
                     <ModalFooter>
@@ -148,7 +147,7 @@ class TasksList extends Component {
                             Set estimate
                         </button>
                         <button className="btn btn-primary" onClick={this.newModal}>
-                            Start new estimate
+                            New estimate
                         </button>
                         <button className="btn btn-primary" onClick={this.closeModal}>
                             Close
